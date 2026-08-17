@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/sensitiveConfig.xsd">
+    <config>
+        <customer>
+            <forbesons_keycloak>
+                <client_secret>1</client_secret>
+            </forbesons_keycloak>
+        </customer>
+    </config>
+</config>

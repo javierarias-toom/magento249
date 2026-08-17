@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customer>
+            <forbesons_keycloak>
+                <enabled>0</enabled>
+                <issuer>https://auth.forbesons.com/realms/forbesons</issuer>
+                <client_id>magento-store</client_id>
+                <scope>openid profile email roles</scope>
+                <required_role>customer</required_role>
+                <require_email_verified>1</require_email_verified>
+                <create_customer>1</create_customer>
+                <post_logout_redirect_uri>https://forbesons.com/</post_logout_redirect_uri>
+            </forbesons_keycloak>
+        </customer>
+    </default>
+</config>

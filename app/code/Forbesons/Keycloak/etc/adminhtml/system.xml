@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customer" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Customer Configuration</label>
+            <tab>customer</tab>
+            <resource>Magento_Customer::manage</resource>
+            <group id="forbesons_keycloak" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Forbesons Keycloak SSO</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable SSO</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable Keycloak single sign-on for storefront customers.</comment>
+                </field>
+                <field id="issuer" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Issuer URL</label>
+                    <comment>Keycloak realm issuer, e.g. https://auth.forbesons.com/realms/forbesons</comment>
+                </field>
+                <field id="client_id" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Client ID</label>
+                </field>
+                <field id="client_secret" translate="label" type="obscure" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="scope" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Scope</label>
+                    <comment>Space separated OIDC scopes.</comment>
+                </field>
+                <field id="required_role" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Required Role</label>
+                    <comment>Realm role required in the id_token to allow login.</comment>
+                </field>
+                <field id="require_email_verified" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Require Verified Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="create_customer" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Auto Create Customers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Create a Magento customer automatically on first SSO login.</comment>
+                </field>
+                <field id="post_logout_redirect_uri" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Post Logout Redirect URI</label>
+                    <comment>Where to return after Keycloak end-session.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
