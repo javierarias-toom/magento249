@@ -1,0 +1,2036 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mg="http://www.araxis.com/2002/Merge/Reporting" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<!--The layout and design of this report is Copyright © 2003-2010 Araxis Ltd. All rights reserved.-->
+<!--The copyright of the data content of this report belongs to the relevant copyright holders.-->
+<title>69. Araxis Merge File Comparison Report</title>
+<style type="text/css">
+body { background: #fff;  color: #000; margin: 0px 14px 14px 14px; }
+h1, h2, h3, h4, h5 {
+	padding: 0em;
+	margin: 1.5em 0em .25em 0em;
+	text-align: left;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	max-width: 55em;
+}
+body, h4, h5, p, ol, ul, li, td, th { font-family: Verdana, Arial, Helvetica, sans-serif; text-align: left; }
+
+h4, h5, p, ol, ul, li { font-size: 70%; }
+input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+}
+
+h1 { margin: 14px 0em 1.2em 0em; font-size: 112%; line-height: 130%;}
+h2 { font-size: 125%; line-height: 84%;}
+h3 { margin-top: 1.4em; font-size: 81%; }
+h4 { margin-top: 1em; font-size: 70%; }
+h5 { margin-top: 1em; font-size: 100%; font-style: italic;}
+h1 strong, h2 strong, h3 strong, h4 strong { font-weight: bold; }
+
+p { margin: 6px 0em 6px 0em; max-width: 55em;}
+p.code, code {}
+p { font-size: 70%; line-height: 125%; }
+table { font-size: 70%;}
+
+p.copyright, .small { font-size: 60%; line-height: 120%; }
+p.copyright { margin: 3px 0px 0px 0px; padding: 0px; text-align: left; }
+acronym { font-variant: small-caps; }
+div.pad { padding: 3px; }
+span.lineEndings { color: red; font-size: 70%; }
+
+table.mgRowGroup, table.mgRowGroupFolder { border: 1px solid #a0a0a0; margin: 10px 0px 10px 0px; width: 100%; table-layout: fixed; border-collapse: collapse; }
+table.mgRowGroup td { vertical-align: top; padding: 0; }
+table.mgRowGroupFolder td { vertical-align: top; padding: 1px 0 1px 0; }
+div.IP { width: 2px; height: 1em; float: left; }
+
+img.mgFldrIcon {float: left; text-align: left; margin: -1px 2px 0px 0px;  height: 16px; width: 16px; border: none; vertical-align: top; background-color: transparent;}
+div.mgFldrIcon {float: left; width: auto;}
+span.left {float: left;width: auto;}
+span.right {float: right;width: auto;}
+
+table.bordered { border-collapse: collapse; border: 1px solid #a0a0a0; margin: 10px 0px 10px 0px;}
+table.bordered th, table.bordered td { vertical-align: top; padding: 3px; border: 1px solid #a0a0a0;}
+table.bordered th { background-color: #e5e5e5; }
+table.bordered td.group { background-color: #f5f5f5; }
+span.disabledNavigation { color: #a0a0a0; }
+div.navigation { margin-top: 14px; font-size: 70%; }
+div.comment { font-weight: normal; color: #000; font-family: Verdana, Arial, Helvetica, sans-serif; background-color: #fcfed8; padding: 2px 5px 2px 5px; border: 1px solid #E3E5C3; margin: 1px 2px 3px 2px; -moz-border-radius: 7px; border-radius: 7px; }
+
+                span.U1, span.U1 a {float: left; width: auto;color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.U1 a {text-decoration: underline;}
+td.U1 {color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R1, span.R1 a {float: left; width: auto;color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R1 a {text-decoration: underline;}
+td.R1 {color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I1, span.I1 a {float: left; width: auto;color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I1 a {text-decoration: underline;}
+td.I1 {color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C1, span.C1 a {float: left; width: auto;color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C1 a {text-decoration: underline;}
+td.C1 {color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+td.nbgC1 {color: #800000; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; background-color: #FFFFFF; }
+span.U2, span.U2 a {float: left; width: auto;color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.U2 a {text-decoration: underline;}
+td.U2 {color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R2, span.R2 a {float: left; width: auto;color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R2 a {text-decoration: underline;}
+td.R2 {color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I2, span.I2 a {float: left; width: auto;color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I2 a {text-decoration: underline;}
+td.I2 {color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C2, span.C2 a {float: left; width: auto;color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C2 a {text-decoration: underline;}
+td.C2 {color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+td.nbgC2 {color: #800000; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; background-color: #FFFFFF; }
+
+span.selected {background-color: #3d80df; color: #fff;}
+span.selected a {background-color: #3d80df; color: #fff; text-decoration: underline;}
+span.symbol {cursor: pointer;}
+			</style>
+</head>
+<body>
+<h1><strong>69. Araxis Merge File Comparison Report</strong></h1>
+<p>Produced by <strong>Araxis Merge</strong> on <strong>Fri Dec 13 16:40:55 2019 UTC</strong>. See <a href="http://www.araxis.com/" title="Link to the Araxis corporate web site">www.araxis.com</a> for information about Merge. This report uses XHTML and CSS2, and is best viewed with a reasonably standards compliant browser such as the latest version of <a href="http://www.mozilla.org/products/firefox/" title="Link to the Firefox page on the Mozilla website">Firefox</a> or <a href="http://www.microsoft.com/ie/" title="Link to the Microsoft website">Internet Explorer</a>. For optimum results when printing this report, use landscape orientation and enable printing of background images and colours in your browser.</p>
+<h3><strong>69.1&nbsp;Files compared</strong></h3>
+<table class="bordered">
+<tr>
+<th>#</th>
+<th>Location</th>
+<th>File</th>
+<th>Last Modified</th>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td>Fri Dec 13 16:40:55 2019 UTC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Porto v.3.2.2\Theme Files\Magento 1.x\Porto Theme\app\design\frontend\smartwave\porto\template\page\html</td>
+<td>header_type26.phtml</td>
+<td>Mon Nov 25 16:44:12 2019 UTC</td>
+</tr>
+</table>
+<h3><strong>69.2&nbsp;Comparison summary</strong></h3>
+<table class="bordered">
+<tr>
+<th rowspan="2" style="vertical-align: bottom;">Description</th>
+<th colspan="2">Between<br />Files 1 and 2</th>
+</tr>
+<tr>
+<th style="text-align: right;">Text Blocks</th>
+<th style="text-align: right;">Lines</th>
+</tr>
+<tr>
+<td>Unchanged</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Changed</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Inserted</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">113</td>
+</tr>
+<tr>
+<td>Removed</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</table>
+<h3><strong>69.3&nbsp;Comparison options</strong></h3>
+<table class="bordered" style="width: 55em;">
+<tr>
+<th>Whitespace</th>
+<td>All differences in whitespace within lines are ignored</td>
+</tr>
+<tr>
+<th>Character case</th>
+<td>Differences in character case are significant</td>
+</tr>
+<tr>
+<th>Line endings</th>
+<td>Differences in line endings (<code>CR</code> and <code>LF</code> characters) are ignored</td>
+</tr>
+<tr>
+<th>CR/LF characters</th>
+<td>Not shown in the comparison detail</td>
+</tr>
+</table>
+<h3><strong>69.4&nbsp;Active regular expressions</strong></h3>
+<p>No regular expressions were active.</p>
+<h3><strong>69.5&nbsp;Comparison detail</strong></h3>
+<table class="mgRowGroup">
+<col style="width: 5em;" />
+<col style="width: 1em;" />
+<col width="*" />
+<col style="width: 1em;" />
+<col style="width: 5em;" />
+<col style="width: 1em;" />
+<col width="*" />
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">1</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&lt;?php&nbsp;echo</span>
+<span class="I2">&nbsp;$this-&gt;ge</span>
+<span class="I2">tChildHtml</span>
+<span class="I2">('sticky.n</span>
+<span class="I2">av')&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">2</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&lt;?php</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">3</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;$store</span>
+<span class="I2">&nbsp;=&nbsp;Mage::a</span>
+<span class="I2">pp()-&gt;getS</span>
+<span class="I2">tore();</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">4</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;$code&nbsp;</span>
+<span class="I2">&nbsp;=&nbsp;$store-</span>
+<span class="I2">&gt;getCode()</span>
+<span class="I2">;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">5</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;$custo</span>
+<span class="I2">m_block&nbsp;=&nbsp;</span>
+<span class="I2">Mage::getS</span>
+<span class="I2">toreConfig</span>
+<span class="I2">('porto_se</span>
+<span class="I2">ttings/hea</span>
+<span class="I2">der/static</span>
+<span class="I2">_block',&nbsp;$</span>
+<span class="I2">code);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">6</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">7</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&lt;div&nbsp;class</span>
+<span class="I2">="header-c</span>
+<span class="I2">ontainer&nbsp;t</span>
+<span class="I2">ype26&nbsp;head</span>
+<span class="I2">er-newskin</span>
+<span class="I2">"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">8</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;c</span>
+<span class="I2">lass="top-</span>
+<span class="I2">links-cont</span>
+<span class="I2">ainer"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">9</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;d</span>
+<span class="I2">iv&nbsp;class="</span>
+<span class="I2">top-links&nbsp;</span>
+<span class="I2">container"</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">10</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;div&nbsp;cla</span>
+<span class="I2">ss="top-li</span>
+<span class="I2">nks-inner"</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">11</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">12</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$sto</span>
+<span class="I2">re_currenc</span>
+<span class="I2">y&nbsp;=&nbsp;$this-</span>
+<span class="I2">&gt;getChildH</span>
+<span class="I2">tml('store</span>
+<span class="I2">_currency'</span>
+<span class="I2">);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">13</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$sto</span>
+<span class="I2">re_languag</span>
+<span class="I2">e&nbsp;=&nbsp;$this-</span>
+<span class="I2">&gt;getChildH</span>
+<span class="I2">tml('store</span>
+<span class="I2">_language'</span>
+<span class="I2">);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">14</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">15</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p&nbsp;echo&nbsp;$st</span>
+<span class="I2">ore_curren</span>
+<span class="I2">cy;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">16</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p&nbsp;if($stor</span>
+<span class="I2">e_currency</span>
+<span class="I2">&nbsp;&amp;&amp;&nbsp;$store</span>
+<span class="I2">_language)</span>
+<span class="I2">:?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">17</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;span&nbsp;clas</span>
+<span class="I2">s="split"&gt;</span>
+<span class="I2">&lt;/span&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">18</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p&nbsp;endif;&nbsp;?</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">19</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p&nbsp;echo&nbsp;$st</span>
+<span class="I2">ore_langua</span>
+<span class="I2">ge;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">20</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p&nbsp;if($stor</span>
+<span class="I2">e_currency</span>
+<span class="I2">&nbsp;||&nbsp;$store</span>
+<span class="I2">_language)</span>
+<span class="I2">:?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">21</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;span&nbsp;clas</span>
+<span class="I2">s="split"&gt;</span>
+<span class="I2">&lt;/span&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">22</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p&nbsp;endif;&nbsp;?</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">23</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">24</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">$compare_l</span>
+<span class="I2">ink&nbsp;=&nbsp;$thi</span>
+<span class="I2">s-&gt;getChil</span>
+<span class="I2">dHtml('com</span>
+<span class="I2">pare_link'</span>
+<span class="I2">);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">25</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">26</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?ph</span>
+<span class="I2">p&nbsp;echo&nbsp;$co</span>
+<span class="I2">mpare_link</span>
+<span class="I2">;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">27</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div</span>
+<span class="I2">&nbsp;class="to</span>
+<span class="I2">p-links-ar</span>
+<span class="I2">ea"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">28</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;div&nbsp;class</span>
+<span class="I2">="top-link</span>
+<span class="I2">s-icon"&gt;&lt;a</span>
+<span class="I2">&nbsp;href="jav</span>
+<span class="I2">ascript:vo</span>
+<span class="I2">id(0)"&gt;&lt;?p</span>
+<span class="I2">hp&nbsp;echo&nbsp;$t</span>
+<span class="I2">his-&gt;__("l</span>
+<span class="I2">inks");&nbsp;?&gt;</span>
+<span class="I2">&lt;/a&gt;&lt;/div&gt;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">29</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;?php&nbsp;echo</span>
+<span class="I2">&nbsp;$this-&gt;ge</span>
+<span class="I2">tChildHtml</span>
+<span class="I2">('topLinks</span>
+<span class="I2">');&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">30</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/di</span>
+<span class="I2">v&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">31</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;c</span>
+<span class="I2">lass="welc</span>
+<span class="I2">ome-msg"&gt;&lt;</span>
+<span class="I2">?php&nbsp;echo&nbsp;</span>
+<span class="I2">$this-&gt;get</span>
+<span class="I2">ChildHtml(</span>
+<span class="I2">'welcome')</span>
+<span class="I2">;&nbsp;?&gt;&nbsp;&lt;?php</span>
+<span class="I2">&nbsp;echo&nbsp;$thi</span>
+<span class="I2">s-&gt;getAddi</span>
+<span class="I2">tionalHtml</span>
+<span class="I2">();&nbsp;?&gt;&lt;/p&gt;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">32</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div</span>
+<span class="I2">&nbsp;class="cl</span>
+<span class="I2">earer"&gt;&lt;/d</span>
+<span class="I2">iv&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">33</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;/div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">34</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span>
+<span class="I2">div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">35</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">36</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;c</span>
+<span class="I2">lass="head</span>
+<span class="I2">er&nbsp;contain</span>
+<span class="I2">er"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">37</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;d</span>
+<span class="I2">iv&nbsp;class="</span>
+<span class="I2">header-mai</span>
+<span class="I2">n-left"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">38</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;?php&nbsp;ec</span>
+<span class="I2">ho&nbsp;'&lt;div&nbsp;c</span>
+<span class="I2">lass="cust</span>
+<span class="I2">om-block"&gt;</span>
+<span class="I2">'.$this-&gt;g</span>
+<span class="I2">etLayout()</span>
+<span class="I2">-&gt;createBl</span>
+<span class="I2">ock('cms/b</span>
+<span class="I2">lock')-&gt;se</span>
+<span class="I2">tBlockId($</span>
+<span class="I2">custom_blo</span>
+<span class="I2">ck)-&gt;toHtm</span>
+<span class="I2">l().'&lt;/div</span>
+<span class="I2">&gt;';&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">39</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span>
+<span class="I2">div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">40</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;d</span>
+<span class="I2">iv&nbsp;class="</span>
+<span class="I2">header-mai</span>
+<span class="I2">n-center"&gt;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">41</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;div&nbsp;cla</span>
+<span class="I2">ss="menu-i</span>
+<span class="I2">con"&gt;&lt;a&nbsp;hr</span>
+<span class="I2">ef="javasc</span>
+<span class="I2">ript:void(</span>
+<span class="I2">0)"&nbsp;title=</span>
+<span class="I2">"&lt;?php&nbsp;ech</span>
+<span class="I2">o&nbsp;$this-&gt;_</span>
+<span class="I2">_('Menu');</span>
+<span class="I2">&nbsp;?&gt;"&gt;&lt;i&nbsp;cl</span>
+<span class="I2">ass="fa&nbsp;fa</span>
+<span class="I2">-bars"&gt;&lt;/i</span>
+<span class="I2">&gt;&lt;/a&gt;&lt;/div</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">42</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;?php&nbsp;if</span>
+<span class="I2">&nbsp;($this-&gt;g</span>
+<span class="I2">etIsHomePa</span>
+<span class="I2">ge()):?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">43</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;h1&nbsp;clas</span>
+<span class="I2">s="logo"&gt;&lt;</span>
+<span class="I2">strong&gt;&lt;?p</span>
+<span class="I2">hp&nbsp;echo&nbsp;$t</span>
+<span class="I2">his-&gt;getLo</span>
+<span class="I2">goAlt();&nbsp;?</span>
+<span class="I2">&gt;&lt;/strong&gt;</span>
+<span class="I2">&lt;a&nbsp;href="&lt;</span>
+<span class="I2">?php&nbsp;echo&nbsp;</span>
+<span class="I2">$this-&gt;get</span>
+<span class="I2">Url('');&nbsp;?</span>
+<span class="I2">&gt;"&nbsp;title="</span>
+<span class="I2">&lt;?php&nbsp;echo</span>
+<span class="I2">&nbsp;$this-&gt;ge</span>
+<span class="I2">tLogoAlt()</span>
+<span class="I2">;&nbsp;?&gt;"&nbsp;clas</span>
+<span class="I2">s="logo"&gt;&lt;</span>
+<span class="I2">img&nbsp;src="&lt;</span>
+<span class="I2">?php&nbsp;echo&nbsp;</span>
+<span class="I2">$this-&gt;get</span>
+<span class="I2">LogoSrc();</span>
+<span class="I2">&nbsp;?&gt;"&nbsp;alt="</span>
+<span class="I2">&lt;?php&nbsp;echo</span>
+<span class="I2">&nbsp;$this-&gt;ge</span>
+<span class="I2">tLogoAlt()</span>
+<span class="I2">;&nbsp;?&gt;"&nbsp;/&gt;&lt;/</span>
+<span class="I2">a&gt;&lt;/h1&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">44</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;?php&nbsp;el</span>
+<span class="I2">se:?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">45</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;a&nbsp;href=</span>
+<span class="I2">"&lt;?php&nbsp;ech</span>
+<span class="I2">o&nbsp;$this-&gt;g</span>
+<span class="I2">etUrl('');</span>
+<span class="I2">&nbsp;?&gt;"&nbsp;title</span>
+<span class="I2">="&lt;?php&nbsp;ec</span>
+<span class="I2">ho&nbsp;$this-&gt;</span>
+<span class="I2">getLogoAlt</span>
+<span class="I2">();&nbsp;?&gt;"&nbsp;cl</span>
+<span class="I2">ass="logo"</span>
+<span class="I2">&gt;&lt;strong&gt;&lt;</span>
+<span class="I2">?php&nbsp;echo&nbsp;</span>
+<span class="I2">$this-&gt;get</span>
+<span class="I2">LogoAlt();</span>
+<span class="I2">&nbsp;?&gt;&lt;/stron</span>
+<span class="I2">g&gt;&lt;img&nbsp;src</span>
+<span class="I2">="&lt;?php&nbsp;ec</span>
+<span class="I2">ho&nbsp;$this-&gt;</span>
+<span class="I2">getLogoSrc</span>
+<span class="I2">();&nbsp;?&gt;"&nbsp;al</span>
+<span class="I2">t="&lt;?php&nbsp;e</span>
+<span class="I2">cho&nbsp;$this-</span>
+<span class="I2">&gt;getLogoAl</span>
+<span class="I2">t();&nbsp;?&gt;"&nbsp;/</span>
+<span class="I2">&gt;&lt;/a&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">46</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;?php&nbsp;en</span>
+<span class="I2">dif;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">47</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span>
+<span class="I2">div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">48</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;d</span>
+<span class="I2">iv&nbsp;class="</span>
+<span class="I2">header-mai</span>
+<span class="I2">n-right"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">49</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;?php</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">50</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cus</span>
+<span class="I2">tom_block_</span>
+<span class="I2">2&nbsp;=&nbsp;Mage::</span>
+<span class="I2">getStoreCo</span>
+<span class="I2">nfig('port</span>
+<span class="I2">o_settings</span>
+<span class="I2">/header/st</span>
+<span class="I2">atic_block</span>
+<span class="I2">_26',&nbsp;$cod</span>
+<span class="I2">e);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">51</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">52</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;?php&nbsp;ec</span>
+<span class="I2">ho&nbsp;'&lt;div&nbsp;c</span>
+<span class="I2">lass="cust</span>
+<span class="I2">om-block"&gt;</span>
+<span class="I2">'.$this-&gt;g</span>
+<span class="I2">etLayout()</span>
+<span class="I2">-&gt;createBl</span>
+<span class="I2">ock('cms/b</span>
+<span class="I2">lock')-&gt;se</span>
+<span class="I2">tBlockId($</span>
+<span class="I2">custom_blo</span>
+<span class="I2">ck_2)-&gt;toH</span>
+<span class="I2">tml().'&lt;/d</span>
+<span class="I2">iv&gt;';&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">53</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;div&nbsp;cla</span>
+<span class="I2">ss="search</span>
+<span class="I2">-area"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">54</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;h</span>
+<span class="I2">ref="javas</span>
+<span class="I2">cript:void</span>
+<span class="I2">(0);"&nbsp;clas</span>
+<span class="I2">s="search-</span>
+<span class="I2">icon"&gt;&lt;i&nbsp;c</span>
+<span class="I2">lass="icon</span>
+<span class="I2">-magnifier</span>
+<span class="I2">"&gt;&lt;/i&gt;&lt;spa</span>
+<span class="I2">n&gt;&lt;?php&nbsp;ec</span>
+<span class="I2">ho&nbsp;$this-&gt;</span>
+<span class="I2">__('Search</span>
+<span class="I2">');&nbsp;?&gt;&lt;/a&gt;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">55</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;/div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">56</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;div&nbsp;cla</span>
+<span class="I2">ss="wishli</span>
+<span class="I2">st-link"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">57</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;h</span>
+<span class="I2">ref="&lt;?php</span>
+<span class="I2">&nbsp;echo&nbsp;$thi</span>
+<span class="I2">s-&gt;getUrl(</span>
+<span class="I2">'wishlist'</span>
+<span class="I2">);&nbsp;?&gt;"&nbsp;tit</span>
+<span class="I2">le="&lt;?php&nbsp;</span>
+<span class="I2">echo&nbsp;$this</span>
+<span class="I2">-&gt;__('Wish</span>
+<span class="I2">list');&nbsp;?&gt;</span>
+<span class="I2">"&gt;&lt;i&nbsp;class</span>
+<span class="I2">="porto-ne</span>
+<span class="I2">w-icon-wis</span>
+<span class="I2">hlist-2"&gt;&lt;</span>
+<span class="I2">/i&gt;&lt;/a&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">58</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;/div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">59</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;?php&nbsp;ec</span>
+<span class="I2">ho&nbsp;$this-&gt;</span>
+<span class="I2">getChildHt</span>
+<span class="I2">ml('minica</span>
+<span class="I2">rt');&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">60</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span>
+<span class="I2">div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">61</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">62</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">63</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$s</span>
+<span class="I2">econdary_m</span>
+<span class="I2">enu&nbsp;=&nbsp;Mage</span>
+<span class="I2">::getStore</span>
+<span class="I2">Config('po</span>
+<span class="I2">rto_settin</span>
+<span class="I2">gs/header/</span>
+<span class="I2">secondary_</span>
+<span class="I2">menu_26',&nbsp;</span>
+<span class="I2">$code);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">64</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$m</span>
+<span class="I2">enu_title&nbsp;</span>
+<span class="I2">=&nbsp;Mage::ge</span>
+<span class="I2">tStoreConf</span>
+<span class="I2">ig('porto_</span>
+<span class="I2">settings/h</span>
+<span class="I2">eader/menu</span>
+<span class="I2">_title_2',</span>
+<span class="I2">&nbsp;$code);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">65</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$o</span>
+<span class="I2">nly_catego</span>
+<span class="I2">ries&nbsp;=&nbsp;$th</span>
+<span class="I2">is-&gt;getOnl</span>
+<span class="I2">yCategorie</span>
+<span class="I2">s();</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">66</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">67</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;c</span>
+<span class="I2">lass="head</span>
+<span class="I2">er-wrapper</span>
+<span class="I2">"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">68</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;d</span>
+<span class="I2">iv&nbsp;class="</span>
+<span class="I2">container"</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">69</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;div&nbsp;cla</span>
+<span class="I2">ss="menu-w</span>
+<span class="I2">rapper"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">70</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div</span>
+<span class="I2">&nbsp;class="dr</span>
+<span class="I2">opdown-men</span>
+<span class="I2">u"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">71</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;div&nbsp;class</span>
+<span class="I2">="menu-con</span>
+<span class="I2">tainer"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">72</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;hre</span>
+<span class="I2">f="javascr</span>
+<span class="I2">ipt:void(0</span>
+<span class="I2">)"&gt;&lt;?php&nbsp;e</span>
+<span class="I2">cho&nbsp;$menu_</span>
+<span class="I2">title;&nbsp;?&gt;&lt;</span>
+<span class="I2">/a&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">73</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php&nbsp;</span>
+<span class="I2">$menuHelpe</span>
+<span class="I2">r&nbsp;=&nbsp;Mage::</span>
+<span class="I2">helper('me</span>
+<span class="I2">gamenu');&nbsp;</span>
+<span class="I2">?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">74</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php&nbsp;</span>
+<span class="I2">$menuData&nbsp;</span>
+<span class="I2">=&nbsp;$menuHel</span>
+<span class="I2">per-&gt;getMe</span>
+<span class="I2">nuData();&nbsp;</span>
+<span class="I2">extract($m</span>
+<span class="I2">enuData);&nbsp;</span>
+<span class="I2">?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">75</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&nbsp;cl</span>
+<span class="I2">ass="menu&nbsp;</span>
+<span class="I2">side-menu"</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">76</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?</span>
+<span class="I2">php&nbsp;echo&nbsp;$</span>
+<span class="I2">menuHelper</span>
+<span class="I2">-&gt;getMenuC</span>
+<span class="I2">ontent($on</span>
+<span class="I2">ly_categor</span>
+<span class="I2">ies);&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">77</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">78</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;scrip</span>
+<span class="I2">t&nbsp;type="te</span>
+<span class="I2">xt/javascr</span>
+<span class="I2">ipt"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">79</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//</span>
+<span class="I2">&lt;![CDATA[</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">80</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va</span>
+<span class="I2">r&nbsp;SW_MENU_</span>
+<span class="I2">POPUP_WIDT</span>
+<span class="I2">H&nbsp;=&nbsp;&lt;?php&nbsp;</span>
+<span class="I2">echo&nbsp;$_pop</span>
+<span class="I2">upWidth;&nbsp;?</span>
+<span class="I2">&gt;;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">81</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQ</span>
+<span class="I2">uery(funct</span>
+<span class="I2">ion($){</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">82</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;$('.menu</span>
+<span class="I2">.side-menu</span>
+<span class="I2">').et_menu</span>
+<span class="I2">({</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">83</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</span>
+<span class="I2">:&nbsp;"default</span>
+<span class="I2">"</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">84</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;});</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">85</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;$(docume</span>
+<span class="I2">nt).ready(</span>
+<span class="I2">function()</span>
+<span class="I2">{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">86</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($</span>
+<span class="I2">(window).w</span>
+<span class="I2">idth()&lt;992</span>
+<span class="I2">)</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">87</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">$(".header</span>
+<span class="I2">-container</span>
+<span class="I2">.type26&nbsp;.h</span>
+<span class="I2">eader-main</span>
+<span class="I2">-right&nbsp;.se</span>
+<span class="I2">arch-area&nbsp;</span>
+<span class="I2">a.search-i</span>
+<span class="I2">con").afte</span>
+<span class="I2">r($(".head</span>
+<span class="I2">er-contain</span>
+<span class="I2">er.type26&nbsp;</span>
+<span class="I2">.header-wr</span>
+<span class="I2">apper&nbsp;.sea</span>
+<span class="I2">rch-area&nbsp;#</span>
+<span class="I2">search_min</span>
+<span class="I2">i_form").d</span>
+<span class="I2">etach());</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">88</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">89</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">$(".header</span>
+<span class="I2">-container</span>
+<span class="I2">.type26&nbsp;.h</span>
+<span class="I2">eader-wrap</span>
+<span class="I2">per&nbsp;.searc</span>
+<span class="I2">h-area&nbsp;a.s</span>
+<span class="I2">earch-icon</span>
+<span class="I2">").after($</span>
+<span class="I2">(".header-</span>
+<span class="I2">container.</span>
+<span class="I2">type26&nbsp;.he</span>
+<span class="I2">ader-main-</span>
+<span class="I2">right&nbsp;.sea</span>
+<span class="I2">rch-area&nbsp;#</span>
+<span class="I2">search_min</span>
+<span class="I2">i_form").d</span>
+<span class="I2">etach());</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">90</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;});</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">91</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;$(window</span>
+<span class="I2">).resize(f</span>
+<span class="I2">unction(){</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">92</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($</span>
+<span class="I2">(window).w</span>
+<span class="I2">idth()&lt;992</span>
+<span class="I2">)</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">93</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">$(".header</span>
+<span class="I2">-container</span>
+<span class="I2">.type26&nbsp;.h</span>
+<span class="I2">eader-main</span>
+<span class="I2">-right&nbsp;.se</span>
+<span class="I2">arch-area&nbsp;</span>
+<span class="I2">a.search-i</span>
+<span class="I2">con").afte</span>
+<span class="I2">r($(".head</span>
+<span class="I2">er-contain</span>
+<span class="I2">er.type26&nbsp;</span>
+<span class="I2">.header-wr</span>
+<span class="I2">apper&nbsp;.sea</span>
+<span class="I2">rch-area&nbsp;#</span>
+<span class="I2">search_min</span>
+<span class="I2">i_form").d</span>
+<span class="I2">etach());</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">94</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">95</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">$(".header</span>
+<span class="I2">-container</span>
+<span class="I2">.type26&nbsp;.h</span>
+<span class="I2">eader-wrap</span>
+<span class="I2">per&nbsp;.searc</span>
+<span class="I2">h-area&nbsp;a.s</span>
+<span class="I2">earch-icon</span>
+<span class="I2">").after($</span>
+<span class="I2">(".header-</span>
+<span class="I2">container.</span>
+<span class="I2">type26&nbsp;.he</span>
+<span class="I2">ader-main-</span>
+<span class="I2">right&nbsp;.sea</span>
+<span class="I2">rch-area&nbsp;#</span>
+<span class="I2">search_min</span>
+<span class="I2">i_form").d</span>
+<span class="I2">etach());</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">96</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;})</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">97</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})</span>
+<span class="I2">;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">98</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//</span>
+<span class="I2">]]&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">99</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/scri</span>
+<span class="I2">pt&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">100</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;/div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">101</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/di</span>
+<span class="I2">v&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">102</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div</span>
+<span class="I2">&nbsp;class="cu</span>
+<span class="I2">stom-menu-</span>
+<span class="I2">block"&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">103</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;?php&nbsp;echo</span>
+<span class="I2">&nbsp;$this-&gt;ge</span>
+<span class="I2">tLayout()-</span>
+<span class="I2">&gt;createBlo</span>
+<span class="I2">ck('cms/bl</span>
+<span class="I2">ock')-&gt;set</span>
+<span class="I2">BlockId($s</span>
+<span class="I2">econdary_m</span>
+<span class="I2">enu)-&gt;toHt</span>
+<span class="I2">ml();&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">104</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/di</span>
+<span class="I2">v&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">105</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div</span>
+<span class="I2">&nbsp;class="se</span>
+<span class="I2">arch-area"</span>
+<span class="I2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">106</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;a&nbsp;href="j</span>
+<span class="I2">avascript:</span>
+<span class="I2">void(0);"&nbsp;</span>
+<span class="I2">class="sea</span>
+<span class="I2">rch-icon"&gt;</span>
+<span class="I2">&lt;i&nbsp;class="</span>
+<span class="I2">icon-magni</span>
+<span class="I2">fier"&gt;&lt;/i&gt;</span>
+<span class="I2">&lt;span&gt;&lt;?ph</span>
+<span class="I2">p&nbsp;echo&nbsp;$th</span>
+<span class="I2">is-&gt;__('Se</span>
+<span class="I2">arch');&nbsp;?&gt;</span>
+<span class="I2">&lt;/a&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">107</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&lt;?php&nbsp;echo</span>
+<span class="I2">&nbsp;$this-&gt;ge</span>
+<span class="I2">tChildHtml</span>
+<span class="I2">('topSearc</span>
+<span class="I2">h');&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">108</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/di</span>
+<span class="I2">v&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">109</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&lt;/div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">110</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span>
+<span class="I2">div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">111</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">112</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&lt;/div&gt;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">113</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&lt;?php&nbsp;echo</span>
+<span class="I2">&nbsp;$this-&gt;ge</span>
+<span class="I2">tChildHtml</span>
+<span class="I2">('mobile.n</span>
+<span class="I2">av')&nbsp;?&gt;</span>
+</td>
+</tr>
+</table>
+<p class="copyright" style="margin-top: 25px; padding-top: 2px; border-top: solid #a0a0a0 1px; max-width: none;">Araxis Merge (but not the data content of this report) is Copyright  &copy; 1993-2010 Araxis Ltd (<a href="http://www.araxis.com/" title="Link to the Araxis corporate web site">www.araxis.com</a>). All rights reserved.</p>
+</body>
+</html>

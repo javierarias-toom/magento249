@@ -1,0 +1,17 @@
+- Documentation for Magento CE 1.x
+http://www.portotheme.com/magento/porto/documentation/
+
+- Documentation for Magento CE 2
+http://www.portotheme.com/magento2/porto/documentation/
+
+- Installation Video Guide for Magento CE 1.x
+http://www.portotheme.com/magento/porto/video_guide/
+
+- Installation Video Guide for Magento CE 2.x
+http://www.portotheme.com/magento2/porto/video_guide/
+
+- Porto Icon Fonts Demo for Magento CE 1.x
+http://www.portotheme.com/magento/porto/icons_list/demo.html
+
+- Porto Icon Fonts Demo for Magento CE 2.x
+http://www.portotheme.com/magento2/porto/icon-fonts/demo.html

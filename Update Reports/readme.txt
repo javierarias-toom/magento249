@@ -1,0 +1,2 @@
+For older versions, please use file comparison tools like Araxis Merge to get updated file report between your theme version and latest version.
+We only provided updated file report for the changes between last version and new version.

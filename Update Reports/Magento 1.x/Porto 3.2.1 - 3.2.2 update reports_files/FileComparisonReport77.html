@@ -1,0 +1,1228 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mg="http://www.araxis.com/2002/Merge/Reporting" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<!--The layout and design of this report is Copyright © 2003-2010 Araxis Ltd. All rights reserved.-->
+<!--The copyright of the data content of this report belongs to the relevant copyright holders.-->
+<title>77. Araxis Merge File Comparison Report</title>
+<style type="text/css">
+body { background: #fff;  color: #000; margin: 0px 14px 14px 14px; }
+h1, h2, h3, h4, h5 {
+	padding: 0em;
+	margin: 1.5em 0em .25em 0em;
+	text-align: left;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	max-width: 55em;
+}
+body, h4, h5, p, ol, ul, li, td, th { font-family: Verdana, Arial, Helvetica, sans-serif; text-align: left; }
+
+h4, h5, p, ol, ul, li { font-size: 70%; }
+input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+}
+
+h1 { margin: 14px 0em 1.2em 0em; font-size: 112%; line-height: 130%;}
+h2 { font-size: 125%; line-height: 84%;}
+h3 { margin-top: 1.4em; font-size: 81%; }
+h4 { margin-top: 1em; font-size: 70%; }
+h5 { margin-top: 1em; font-size: 100%; font-style: italic;}
+h1 strong, h2 strong, h3 strong, h4 strong { font-weight: bold; }
+
+p { margin: 6px 0em 6px 0em; max-width: 55em;}
+p.code, code {}
+p { font-size: 70%; line-height: 125%; }
+table { font-size: 70%;}
+
+p.copyright, .small { font-size: 60%; line-height: 120%; }
+p.copyright { margin: 3px 0px 0px 0px; padding: 0px; text-align: left; }
+acronym { font-variant: small-caps; }
+div.pad { padding: 3px; }
+span.lineEndings { color: red; font-size: 70%; }
+
+table.mgRowGroup, table.mgRowGroupFolder { border: 1px solid #a0a0a0; margin: 10px 0px 10px 0px; width: 100%; table-layout: fixed; border-collapse: collapse; }
+table.mgRowGroup td { vertical-align: top; padding: 0; }
+table.mgRowGroupFolder td { vertical-align: top; padding: 1px 0 1px 0; }
+div.IP { width: 2px; height: 1em; float: left; }
+
+img.mgFldrIcon {float: left; text-align: left; margin: -1px 2px 0px 0px;  height: 16px; width: 16px; border: none; vertical-align: top; background-color: transparent;}
+div.mgFldrIcon {float: left; width: auto;}
+span.left {float: left;width: auto;}
+span.right {float: right;width: auto;}
+
+table.bordered { border-collapse: collapse; border: 1px solid #a0a0a0; margin: 10px 0px 10px 0px;}
+table.bordered th, table.bordered td { vertical-align: top; padding: 3px; border: 1px solid #a0a0a0;}
+table.bordered th { background-color: #e5e5e5; }
+table.bordered td.group { background-color: #f5f5f5; }
+span.disabledNavigation { color: #a0a0a0; }
+div.navigation { margin-top: 14px; font-size: 70%; }
+div.comment { font-weight: normal; color: #000; font-family: Verdana, Arial, Helvetica, sans-serif; background-color: #fcfed8; padding: 2px 5px 2px 5px; border: 1px solid #E3E5C3; margin: 1px 2px 3px 2px; -moz-border-radius: 7px; border-radius: 7px; }
+
+                span.U1, span.U1 a {float: left; width: auto;color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.U1 a {text-decoration: underline;}
+td.U1 {color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R1, span.R1 a {float: left; width: auto;color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R1 a {text-decoration: underline;}
+td.R1 {color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I1, span.I1 a {float: left; width: auto;color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I1 a {text-decoration: underline;}
+td.I1 {color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C1, span.C1 a {float: left; width: auto;color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C1 a {text-decoration: underline;}
+td.C1 {color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+td.nbgC1 {color: #800000; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; background-color: #FFFFFF; }
+span.U2, span.U2 a {float: left; width: auto;color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.U2 a {text-decoration: underline;}
+td.U2 {color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R2, span.R2 a {float: left; width: auto;color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R2 a {text-decoration: underline;}
+td.R2 {color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I2, span.I2 a {float: left; width: auto;color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I2 a {text-decoration: underline;}
+td.I2 {color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C2, span.C2 a {float: left; width: auto;color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C2 a {text-decoration: underline;}
+td.C2 {color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+td.nbgC2 {color: #800000; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; background-color: #FFFFFF; }
+
+span.selected {background-color: #3d80df; color: #fff;}
+span.selected a {background-color: #3d80df; color: #fff; text-decoration: underline;}
+span.symbol {cursor: pointer;}
+			</style>
+</head>
+<body>
+<h1><strong>77. Araxis Merge File Comparison Report</strong></h1>
+<p>Produced by <strong>Araxis Merge</strong> on <strong>Fri Dec 13 16:40:55 2019 UTC</strong>. See <a href="http://www.araxis.com/" title="Link to the Araxis corporate web site">www.araxis.com</a> for information about Merge. This report uses XHTML and CSS2, and is best viewed with a reasonably standards compliant browser such as the latest version of <a href="http://www.mozilla.org/products/firefox/" title="Link to the Firefox page on the Mozilla website">Firefox</a> or <a href="http://www.microsoft.com/ie/" title="Link to the Microsoft website">Internet Explorer</a>. For optimum results when printing this report, use landscape orientation and enable printing of background images and colours in your browser.</p>
+<h3><strong>77.1&nbsp;Files compared</strong></h3>
+<table class="bordered">
+<tr>
+<th>#</th>
+<th>Location</th>
+<th>File</th>
+<th>Last Modified</th>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td>Fri Dec 13 16:40:55 2019 UTC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Porto v.3.2.2\Theme Files\Magento 1.x\Porto Theme\js\smartwave\jquery\plugins</td>
+<td>jquery.floatelement.js</td>
+<td>Wed Nov 20 12:40:37 2019 UTC</td>
+</tr>
+</table>
+<h3><strong>77.2&nbsp;Comparison summary</strong></h3>
+<table class="bordered">
+<tr>
+<th rowspan="2" style="vertical-align: bottom;">Description</th>
+<th colspan="2">Between<br />Files 1 and 2</th>
+</tr>
+<tr>
+<th style="text-align: right;">Text Blocks</th>
+<th style="text-align: right;">Lines</th>
+</tr>
+<tr>
+<td>Unchanged</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Changed</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Inserted</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">78</td>
+</tr>
+<tr>
+<td>Removed</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</table>
+<h3><strong>77.3&nbsp;Comparison options</strong></h3>
+<table class="bordered" style="width: 55em;">
+<tr>
+<th>Whitespace</th>
+<td>All differences in whitespace within lines are ignored</td>
+</tr>
+<tr>
+<th>Character case</th>
+<td>Differences in character case are significant</td>
+</tr>
+<tr>
+<th>Line endings</th>
+<td>Differences in line endings (<code>CR</code> and <code>LF</code> characters) are ignored</td>
+</tr>
+<tr>
+<th>CR/LF characters</th>
+<td>Not shown in the comparison detail</td>
+</tr>
+</table>
+<h3><strong>77.4&nbsp;Active regular expressions</strong></h3>
+<p>No regular expressions were active.</p>
+<h3><strong>77.5&nbsp;Comparison detail</strong></h3>
+<table class="mgRowGroup">
+<col style="width: 5em;" />
+<col style="width: 1em;" />
+<col width="*" />
+<col style="width: 1em;" />
+<col style="width: 5em;" />
+<col style="width: 1em;" />
+<col width="*" />
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">1</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">(function&nbsp;</span>
+<span class="I2">(factory)&nbsp;</span>
+<span class="I2">{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">2</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;'use&nbsp;s</span>
+<span class="I2">trict';</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">3</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">4</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(ty</span>
+<span class="I2">peof&nbsp;defin</span>
+<span class="I2">e&nbsp;===&nbsp;'fun</span>
+<span class="I2">ction'&nbsp;&amp;&amp;&nbsp;</span>
+<span class="I2">define.amd</span>
+<span class="I2">)&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">5</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de</span>
+<span class="I2">fine([</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">6</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;'jquery'</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">7</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+<span class="I2">&nbsp;factory);</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">8</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else</span>
+<span class="I2">&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">9</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fa</span>
+<span class="I2">ctory(wind</span>
+<span class="I2">ow.jQuery)</span>
+<span class="I2">;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">10</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">11</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">}(function</span>
+<span class="I2">&nbsp;($)&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">12</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;'use&nbsp;s</span>
+<span class="I2">trict';</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">13</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">14</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;$w</span>
+<span class="I2">indow&nbsp;=&nbsp;$(</span>
+<span class="I2">window);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">15</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">16</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;$.fn.t</span>
+<span class="I2">hemePlugin</span>
+<span class="I2">FloatEleme</span>
+<span class="I2">nt&nbsp;=&nbsp;funct</span>
+<span class="I2">ion(option</span>
+<span class="I2">s)&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">17</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va</span>
+<span class="I2">r&nbsp;settings</span>
+<span class="I2">&nbsp;=&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">18</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;startPos</span>
+<span class="I2">:&nbsp;"top",</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">19</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;speed:&nbsp;3</span>
+<span class="I2">,</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">20</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;horizont</span>
+<span class="I2">al:&nbsp;false,</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">21</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;transiti</span>
+<span class="I2">on:&nbsp;false</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">22</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">23</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va</span>
+<span class="I2">r&nbsp;$el,&nbsp;$op</span>
+<span class="I2">tions;</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">24</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">25</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fu</span>
+<span class="I2">nction&nbsp;ini</span>
+<span class="I2">tialize(t,</span>
+<span class="I2">&nbsp;options)&nbsp;</span>
+<span class="I2">{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">26</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;return&nbsp;t</span>
+<span class="I2">.data("__f</span>
+<span class="I2">loatElemen</span>
+<span class="I2">t")&nbsp;?&nbsp;this</span>
+<span class="I2">&nbsp;:&nbsp;($el&nbsp;=&nbsp;</span>
+<span class="I2">t,</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">27</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;setData(</span>
+<span class="I2">),</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">28</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;setOptio</span>
+<span class="I2">ns(options</span>
+<span class="I2">),</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">29</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;build(),</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">30</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;this)</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">31</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">32</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">33</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fu</span>
+<span class="I2">nction&nbsp;set</span>
+<span class="I2">Data()&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">34</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;return&nbsp;$</span>
+<span class="I2">el.data("_</span>
+<span class="I2">_floatElem</span>
+<span class="I2">ent")</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">35</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">36</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">37</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fu</span>
+<span class="I2">nction&nbsp;set</span>
+<span class="I2">Options(op</span>
+<span class="I2">tions)&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">38</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;return&nbsp;$</span>
+<span class="I2">options&nbsp;=&nbsp;</span>
+<span class="I2">$.extend(!</span>
+<span class="I2">0,&nbsp;{},&nbsp;set</span>
+<span class="I2">tings,&nbsp;opt</span>
+<span class="I2">ions,&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">39</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wrap</span>
+<span class="I2">per:&nbsp;$el</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">40</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;})</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">41</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">42</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">43</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fu</span>
+<span class="I2">nction&nbsp;bui</span>
+<span class="I2">ld()&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">44</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;var&nbsp;t,&nbsp;o</span>
+<span class="I2">&nbsp;=&nbsp;$option</span>
+<span class="I2">s.wrapper,</span>
+<span class="I2">&nbsp;s&nbsp;=&nbsp;$(win</span>
+<span class="I2">dow);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">45</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;return&nbsp;$</span>
+<span class="I2">options.st</span>
+<span class="I2">yle&nbsp;&amp;&amp;&nbsp;o.a</span>
+<span class="I2">ttr("style</span>
+<span class="I2">",&nbsp;$option</span>
+<span class="I2">s.style),</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">46</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;s.width(</span>
+<span class="I2">)&nbsp;&gt;&nbsp;767&nbsp;&amp;&amp;</span>
+<span class="I2">&nbsp;("none"&nbsp;=</span>
+<span class="I2">=&nbsp;$options</span>
+<span class="I2">.startPos&nbsp;</span>
+<span class="I2">?&nbsp;t&nbsp;=&nbsp;""&nbsp;:</span>
+<span class="I2">&nbsp;"top"&nbsp;==&nbsp;</span>
+<span class="I2">$options.s</span>
+<span class="I2">tartPos&nbsp;?&nbsp;</span>
+<span class="I2">(o.css({</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">47</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top:</span>
+<span class="I2">&nbsp;0</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">48</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;}),</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">49</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;t&nbsp;=&nbsp;"")&nbsp;</span>
+<span class="I2">:&nbsp;(o.css({</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">50</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bott</span>
+<span class="I2">om:&nbsp;0</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">51</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;}),</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">52</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;t&nbsp;=&nbsp;"-")</span>
+<span class="I2">,</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">53</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;$options</span>
+<span class="I2">.transitio</span>
+<span class="I2">n&nbsp;&amp;&amp;&nbsp;o.css</span>
+<span class="I2">({</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">54</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tran</span>
+<span class="I2">sition:&nbsp;"e</span>
+<span class="I2">ase&nbsp;transf</span>
+<span class="I2">orm&nbsp;500ms"</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">55</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;}),</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">56</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;movement</span>
+<span class="I2">(t),</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">57</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;s.on("sc</span>
+<span class="I2">roll",&nbsp;fun</span>
+<span class="I2">ction()&nbsp;{</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">58</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;move</span>
+<span class="I2">ment(t)</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">59</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;}))</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">60</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">61</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">62</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fu</span>
+<span class="I2">nction&nbsp;mov</span>
+<span class="I2">ement(t)&nbsp;{</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">63</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;var&nbsp;i&nbsp;=&nbsp;</span>
+<span class="I2">$($options</span>
+<span class="I2">.wrapper)</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">64</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;o&nbsp;=&nbsp;</span>
+<span class="I2">$(window)</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">65</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;s&nbsp;=&nbsp;</span>
+<span class="I2">o.scrollTo</span>
+<span class="I2">p()</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">66</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;n&nbsp;=&nbsp;</span>
+<span class="I2">100&nbsp;*&nbsp;(i.o</span>
+<span class="I2">ffset().to</span>
+<span class="I2">p&nbsp;-&nbsp;s)&nbsp;/&nbsp;o</span>
+<span class="I2">.height();</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">67</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;$options</span>
+<span class="I2">.horizonta</span>
+<span class="I2">l&nbsp;?&nbsp;i.css(</span>
+<span class="I2">{</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">68</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tran</span>
+<span class="I2">sform:&nbsp;"tr</span>
+<span class="I2">anslate3d(</span>
+<span class="I2">"&nbsp;+&nbsp;t&nbsp;+&nbsp;n&nbsp;</span>
+<span class="I2">/&nbsp;$options</span>
+<span class="I2">.speed&nbsp;+&nbsp;"</span>
+<span class="I2">%,&nbsp;"&nbsp;+&nbsp;t&nbsp;+</span>
+<span class="I2">&nbsp;n&nbsp;/&nbsp;$opti</span>
+<span class="I2">ons.speed&nbsp;</span>
+<span class="I2">+&nbsp;"%,&nbsp;0)"</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">69</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;})&nbsp;:&nbsp;i.c</span>
+<span class="I2">ss({</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">70</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tran</span>
+<span class="I2">sform:&nbsp;"tr</span>
+<span class="I2">anslate3d(</span>
+<span class="I2">0,&nbsp;"&nbsp;+&nbsp;t&nbsp;+</span>
+<span class="I2">&nbsp;n&nbsp;/&nbsp;$opti</span>
+<span class="I2">ons.speed&nbsp;</span>
+<span class="I2">+&nbsp;"%,&nbsp;0)"</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">71</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="I2">&nbsp;&nbsp;})</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">72</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">73</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">74</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in</span>
+<span class="I2">itialize(t</span>
+<span class="I2">his,&nbsp;optio</span>
+<span class="I2">ns);</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">75</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">76</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;re</span>
+<span class="I2">turn&nbsp;this;</span>
+<span class="I2" />
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">77</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</td>
+</tr>
+<tr>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td>&nbsp;</td>
+<td class="I2" style="text-align: right;">78</td>
+<td class="I2" style="text-decoration: none;">&nbsp;</td>
+<td class="I2">
+<span class="I2">}));</span>
+</td>
+</tr>
+</table>
+<p class="copyright" style="margin-top: 25px; padding-top: 2px; border-top: solid #a0a0a0 1px; max-width: none;">Araxis Merge (but not the data content of this report) is Copyright  &copy; 1993-2010 Araxis Ltd (<a href="http://www.araxis.com/" title="Link to the Araxis corporate web site">www.araxis.com</a>). All rights reserved.</p>
+</body>
+</html>

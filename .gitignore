@@ -1,0 +1,17 @@
+/app/etc/env.php
+/.env
+/.env.*
+/auth.json
+/var/
+/generated/
+/vendor/
+/pub/media/
+/pub/static/
+/pub/sitemaps/
+/node_modules/
+*.log
+*.sql
+*.sql.gz
+*.tar
+*.tar.gz
+*.zip

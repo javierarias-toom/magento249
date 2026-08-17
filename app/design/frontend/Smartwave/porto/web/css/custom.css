@@ -1,0 +1,11 @@
+
+.page-header .logo img {
+    max-height: 44px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+.header.content {
+    display: flex !important;
+    align-items: center !important;
+}
+

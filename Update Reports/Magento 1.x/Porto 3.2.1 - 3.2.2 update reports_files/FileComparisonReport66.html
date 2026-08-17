@@ -1,0 +1,1385 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mg="http://www.araxis.com/2002/Merge/Reporting" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<!--The layout and design of this report is Copyright © 2003-2010 Araxis Ltd. All rights reserved.-->
+<!--The copyright of the data content of this report belongs to the relevant copyright holders.-->
+<title>66. Araxis Merge File Comparison Report</title>
+<style type="text/css">
+body { background: #fff;  color: #000; margin: 0px 14px 14px 14px; }
+h1, h2, h3, h4, h5 {
+	padding: 0em;
+	margin: 1.5em 0em .25em 0em;
+	text-align: left;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	max-width: 55em;
+}
+body, h4, h5, p, ol, ul, li, td, th { font-family: Verdana, Arial, Helvetica, sans-serif; text-align: left; }
+
+h4, h5, p, ol, ul, li { font-size: 70%; }
+input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+}
+
+h1 { margin: 14px 0em 1.2em 0em; font-size: 112%; line-height: 130%;}
+h2 { font-size: 125%; line-height: 84%;}
+h3 { margin-top: 1.4em; font-size: 81%; }
+h4 { margin-top: 1em; font-size: 70%; }
+h5 { margin-top: 1em; font-size: 100%; font-style: italic;}
+h1 strong, h2 strong, h3 strong, h4 strong { font-weight: bold; }
+
+p { margin: 6px 0em 6px 0em; max-width: 55em;}
+p.code, code {}
+p { font-size: 70%; line-height: 125%; }
+table { font-size: 70%;}
+
+p.copyright, .small { font-size: 60%; line-height: 120%; }
+p.copyright { margin: 3px 0px 0px 0px; padding: 0px; text-align: left; }
+acronym { font-variant: small-caps; }
+div.pad { padding: 3px; }
+span.lineEndings { color: red; font-size: 70%; }
+
+table.mgRowGroup, table.mgRowGroupFolder { border: 1px solid #a0a0a0; margin: 10px 0px 10px 0px; width: 100%; table-layout: fixed; border-collapse: collapse; }
+table.mgRowGroup td { vertical-align: top; padding: 0; }
+table.mgRowGroupFolder td { vertical-align: top; padding: 1px 0 1px 0; }
+div.IP { width: 2px; height: 1em; float: left; }
+
+img.mgFldrIcon {float: left; text-align: left; margin: -1px 2px 0px 0px;  height: 16px; width: 16px; border: none; vertical-align: top; background-color: transparent;}
+div.mgFldrIcon {float: left; width: auto;}
+span.left {float: left;width: auto;}
+span.right {float: right;width: auto;}
+
+table.bordered { border-collapse: collapse; border: 1px solid #a0a0a0; margin: 10px 0px 10px 0px;}
+table.bordered th, table.bordered td { vertical-align: top; padding: 3px; border: 1px solid #a0a0a0;}
+table.bordered th { background-color: #e5e5e5; }
+table.bordered td.group { background-color: #f5f5f5; }
+span.disabledNavigation { color: #a0a0a0; }
+div.navigation { margin-top: 14px; font-size: 70%; }
+div.comment { font-weight: normal; color: #000; font-family: Verdana, Arial, Helvetica, sans-serif; background-color: #fcfed8; padding: 2px 5px 2px 5px; border: 1px solid #E3E5C3; margin: 1px 2px 3px 2px; -moz-border-radius: 7px; border-radius: 7px; }
+
+                span.U1, span.U1 a {float: left; width: auto;color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.U1 a {text-decoration: underline;}
+td.U1 {color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R1, span.R1 a {float: left; width: auto;color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R1 a {text-decoration: underline;}
+td.R1 {color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I1, span.I1 a {float: left; width: auto;color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I1 a {text-decoration: underline;}
+td.I1 {color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C1, span.C1 a {float: left; width: auto;color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C1 a {text-decoration: underline;}
+td.C1 {color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+td.nbgC1 {color: #800000; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; background-color: #FFFFFF; }
+span.U2, span.U2 a {float: left; width: auto;color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.U2 a {text-decoration: underline;}
+td.U2 {color: #000000; background-color: #FFFFFF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R2, span.R2 a {float: left; width: auto;color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.R2 a {text-decoration: underline;}
+td.R2 {color: #800000; background-color: #F3E6D8; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I2, span.I2 a {float: left; width: auto;color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.I2 a {text-decoration: underline;}
+td.I2 {color: #800000; background-color: #D1E8CF; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C2, span.C2 a {float: left; width: auto;color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+span.C2 a {text-decoration: underline;}
+td.C2 {color: #800000; background-color: #DACDE6; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; }
+td.nbgC2 {color: #800000; font-family: "Courier New"; font-weight: normal; font-style: normal; font-size: 8pt; text-decoration: none; background-color: #FFFFFF; }
+
+span.selected {background-color: #3d80df; color: #fff;}
+span.selected a {background-color: #3d80df; color: #fff; text-decoration: underline;}
+span.symbol {cursor: pointer;}
+			</style>
+</head>
+<body>
+<h1><strong>66. Araxis Merge File Comparison Report</strong></h1>
+<p>Produced by <strong>Araxis Merge</strong> on <strong>Fri Dec 13 16:40:55 2019 UTC</strong>. See <a href="http://www.araxis.com/" title="Link to the Araxis corporate web site">www.araxis.com</a> for information about Merge. This report uses XHTML and CSS2, and is best viewed with a reasonably standards compliant browser such as the latest version of <a href="http://www.mozilla.org/products/firefox/" title="Link to the Firefox page on the Mozilla website">Firefox</a> or <a href="http://www.microsoft.com/ie/" title="Link to the Microsoft website">Internet Explorer</a>. For optimum results when printing this report, use landscape orientation and enable printing of background images and colours in your browser.</p>
+<h3><strong>66.1&nbsp;Files compared</strong></h3>
+<table class="bordered">
+<tr>
+<th>#</th>
+<th>Location</th>
+<th>File</th>
+<th>Last Modified</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Porto v.3.2.1\Theme Files\Magento 1.x\Porto Theme\app\design\frontend\smartwave\porto\template\page\html</td>
+<td>head.phtml</td>
+<td>Sun Dec 10 15:42:00 2017 UTC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Porto v.3.2.2\Theme Files\Magento 1.x\Porto Theme\app\design\frontend\smartwave\porto\template\page\html</td>
+<td>head.phtml</td>
+<td>Thu Nov 28 15:06:10 2019 UTC</td>
+</tr>
+</table>
+<h3><strong>66.2&nbsp;Comparison summary</strong></h3>
+<table class="bordered">
+<tr>
+<th rowspan="2" style="vertical-align: bottom;">Description</th>
+<th colspan="2">Between<br />Files 1 and 2</th>
+</tr>
+<tr>
+<th style="text-align: right;">Text Blocks</th>
+<th style="text-align: right;">Lines</th>
+</tr>
+<tr>
+<td>Unchanged</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">96</td>
+</tr>
+<tr>
+<td>Changed</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Inserted</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Removed</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</table>
+<h3><strong>66.3&nbsp;Comparison options</strong></h3>
+<table class="bordered" style="width: 55em;">
+<tr>
+<th>Whitespace</th>
+<td>All differences in whitespace within lines are ignored</td>
+</tr>
+<tr>
+<th>Character case</th>
+<td>Differences in character case are significant</td>
+</tr>
+<tr>
+<th>Line endings</th>
+<td>Differences in line endings (<code>CR</code> and <code>LF</code> characters) are ignored</td>
+</tr>
+<tr>
+<th>CR/LF characters</th>
+<td>Not shown in the comparison detail</td>
+</tr>
+</table>
+<h3><strong>66.4&nbsp;Active regular expressions</strong></h3>
+<p>No regular expressions were active.</p>
+<h3><strong>66.5&nbsp;Comparison detail</strong></h3>
+<table class="mgRowGroup">
+<col style="width: 5em;" />
+<col style="width: 1em;" />
+<col width="*" />
+<col style="width: 1em;" />
+<col style="width: 5em;" />
+<col style="width: 1em;" />
+<col width="*" />
+<tr>
+<td class="U1" style="text-align: right;">1</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;meta&nbsp;http</span>
+<span class="U1">-equiv="Co</span>
+<span class="U1">ntent-Type</span>
+<span class="U1">"&nbsp;content=</span>
+<span class="U1">"&lt;?php&nbsp;ech</span>
+<span class="U1">o&nbsp;$this-&gt;g</span>
+<span class="U1">etContentT</span>
+<span class="U1">ype()&nbsp;?&gt;"&nbsp;</span>
+<span class="U1">/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">1</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;meta&nbsp;http</span>
+<span class="U2">-equiv="Co</span>
+<span class="U2">ntent-Type</span>
+<span class="U2">"&nbsp;content=</span>
+<span class="U2">"&lt;?php&nbsp;ech</span>
+<span class="U2">o&nbsp;$this-&gt;g</span>
+<span class="U2">etContentT</span>
+<span class="U2">ype()&nbsp;?&gt;"&nbsp;</span>
+<span class="U2">/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">2</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;if($</span>
+<span class="U1">meta_title</span>
+<span class="U1">=$this-&gt;ge</span>
+<span class="U1">tMetaTitle</span>
+<span class="U1">()):&nbsp;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">2</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;if($</span>
+<span class="U2">meta_title</span>
+<span class="U2">=$this-&gt;ge</span>
+<span class="U2">tMetaTitle</span>
+<span class="U2">()):&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">3</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;title&gt;&lt;?p</span>
+<span class="U1">hp&nbsp;echo&nbsp;ht</span>
+<span class="U1">mlspecialc</span>
+<span class="U1">hars($meta</span>
+<span class="U1">_title)&nbsp;?&gt;</span>
+<span class="U1">&lt;/title&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">3</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;title&gt;&lt;?p</span>
+<span class="U2">hp&nbsp;echo&nbsp;ht</span>
+<span class="U2">mlspecialc</span>
+<span class="U2">hars($meta</span>
+<span class="U2">_title)&nbsp;?&gt;</span>
+<span class="U2">&lt;/title&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">4</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;else</span>
+<span class="U1">:&nbsp;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">4</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;else</span>
+<span class="U2">:&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">5</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;title&gt;&lt;?p</span>
+<span class="U1">hp&nbsp;echo&nbsp;$t</span>
+<span class="U1">his-&gt;getTi</span>
+<span class="U1">tle()&nbsp;?&gt;&lt;/</span>
+<span class="U1">title&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">5</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;title&gt;&lt;?p</span>
+<span class="U2">hp&nbsp;echo&nbsp;$t</span>
+<span class="U2">his-&gt;getTi</span>
+<span class="U2">tle()&nbsp;?&gt;&lt;/</span>
+<span class="U2">title&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">6</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;endi</span>
+<span class="U1">f;&nbsp;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">6</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;endi</span>
+<span class="U2">f;&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">7</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;meta&nbsp;name</span>
+<span class="U1">="descript</span>
+<span class="U1">ion"&nbsp;conte</span>
+<span class="U1">nt="&lt;?php&nbsp;</span>
+<span class="U1">echo&nbsp;htmls</span>
+<span class="U1">pecialchar</span>
+<span class="U1">s($this-&gt;g</span>
+<span class="U1">etDescript</span>
+<span class="U1">ion())&nbsp;?&gt;"</span>
+<span class="U1">&nbsp;/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">7</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;meta&nbsp;name</span>
+<span class="U2">="descript</span>
+<span class="U2">ion"&nbsp;conte</span>
+<span class="U2">nt="&lt;?php&nbsp;</span>
+<span class="U2">echo&nbsp;htmls</span>
+<span class="U2">pecialchar</span>
+<span class="U2">s($this-&gt;g</span>
+<span class="U2">etDescript</span>
+<span class="U2">ion())&nbsp;?&gt;"</span>
+<span class="U2">&nbsp;/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">8</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;meta&nbsp;name</span>
+<span class="U1">="keywords</span>
+<span class="U1">"&nbsp;content=</span>
+<span class="U1">"&lt;?php&nbsp;ech</span>
+<span class="U1">o&nbsp;htmlspec</span>
+<span class="U1">ialchars($</span>
+<span class="U1">this-&gt;getK</span>
+<span class="U1">eywords())</span>
+<span class="U1">&nbsp;?&gt;"&nbsp;/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">8</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;meta&nbsp;name</span>
+<span class="U2">="keywords</span>
+<span class="U2">"&nbsp;content=</span>
+<span class="U2">"&lt;?php&nbsp;ech</span>
+<span class="U2">o&nbsp;htmlspec</span>
+<span class="U2">ialchars($</span>
+<span class="U2">this-&gt;getK</span>
+<span class="U2">eywords())</span>
+<span class="U2">&nbsp;?&gt;"&nbsp;/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">9</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;meta&nbsp;name</span>
+<span class="U1">="robots"&nbsp;</span>
+<span class="U1">content="&lt;</span>
+<span class="U1">?php&nbsp;echo&nbsp;</span>
+<span class="U1">htmlspecia</span>
+<span class="U1">lchars($th</span>
+<span class="U1">is-&gt;getRob</span>
+<span class="U1">ots())&nbsp;?&gt;"</span>
+<span class="U1">&nbsp;/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">9</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;meta&nbsp;name</span>
+<span class="U2">="robots"&nbsp;</span>
+<span class="U2">content="&lt;</span>
+<span class="U2">?php&nbsp;echo&nbsp;</span>
+<span class="U2">htmlspecia</span>
+<span class="U2">lchars($th</span>
+<span class="U2">is-&gt;getRob</span>
+<span class="U2">ots())&nbsp;?&gt;"</span>
+<span class="U2">&nbsp;/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">10</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">10</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">11</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;$theme</span>
+<span class="U1">&nbsp;=&nbsp;Mage::h</span>
+<span class="U1">elper('por</span>
+<span class="U1">to');</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">11</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;$theme</span>
+<span class="U2">&nbsp;=&nbsp;Mage::h</span>
+<span class="U2">elper('por</span>
+<span class="U2">to');</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">12</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;$charS</span>
+<span class="U1">ubset&nbsp;=&nbsp;'&amp;</span>
+<span class="U1">subset=lat</span>
+<span class="U1">in';</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">12</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;$charS</span>
+<span class="U2">ubset&nbsp;=&nbsp;'&amp;</span>
+<span class="U2">subset=lat</span>
+<span class="U2">in';</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">13</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;$d&nbsp;=&nbsp;$</span>
+<span class="U1">theme-&gt;get</span>
+<span class="U1">CfgSection</span>
+<span class="U1">Design();</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">13</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;$d&nbsp;=&nbsp;$</span>
+<span class="U2">theme-&gt;get</span>
+<span class="U2">CfgSection</span>
+<span class="U2">Design();</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">14</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;$s&nbsp;=&nbsp;$</span>
+<span class="U1">theme-&gt;get</span>
+<span class="U1">CfgSection</span>
+<span class="U1">Settings()</span>
+<span class="U1">;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">14</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;$s&nbsp;=&nbsp;$</span>
+<span class="U2">theme-&gt;get</span>
+<span class="U2">CfgSection</span>
+<span class="U2">Settings()</span>
+<span class="U2">;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">15</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if</span>
+<span class="U1">(!isset($s</span>
+<span class="U1">['general'</span>
+<span class="U1">]['disable</span>
+<span class="U1">_responsiv</span>
+<span class="U1">e'])&nbsp;||&nbsp;(i</span>
+<span class="U1">sset($s['g</span>
+<span class="U1">eneral']['</span>
+<span class="U1">disable_re</span>
+<span class="U1">sponsive']</span>
+<span class="U1">)&nbsp;&amp;&amp;&nbsp;!$s['</span>
+<span class="U1">general'][</span>
+<span class="U1">'disable_r</span>
+<span class="U1">esponsive'</span>
+<span class="U1">])){</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">15</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if</span>
+<span class="U2">(!isset($s</span>
+<span class="U2">['general'</span>
+<span class="U2">]['disable</span>
+<span class="U2">_responsiv</span>
+<span class="U2">e'])&nbsp;||&nbsp;(i</span>
+<span class="U2">sset($s['g</span>
+<span class="U2">eneral']['</span>
+<span class="U2">disable_re</span>
+<span class="U2">sponsive']</span>
+<span class="U2">)&nbsp;&amp;&amp;&nbsp;!$s['</span>
+<span class="U2">general'][</span>
+<span class="U2">'disable_r</span>
+<span class="U2">esponsive'</span>
+<span class="U2">])){</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">16</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">?&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">16</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">?&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">17</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;meta&nbsp;name</span>
+<span class="U1">="viewport</span>
+<span class="U1">"&nbsp;content=</span>
+<span class="U1">"width=dev</span>
+<span class="U1">ice-width,</span>
+<span class="U1">&nbsp;initial-s</span>
+<span class="U1">cale=1.0"/</span>
+<span class="U1">&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">17</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;meta&nbsp;name</span>
+<span class="U2">="viewport</span>
+<span class="U2">"&nbsp;content=</span>
+<span class="U2">"width=dev</span>
+<span class="U2">ice-width,</span>
+<span class="U2">&nbsp;initial-s</span>
+<span class="U2">cale=1.0"/</span>
+<span class="U2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">18</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">18</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">19</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">19</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">20</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">20</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">21</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;link&nbsp;rel=</span>
+<span class="U1">"icon"&nbsp;hre</span>
+<span class="U1">f="&lt;?php&nbsp;e</span>
+<span class="U1">cho&nbsp;$this-</span>
+<span class="U1">&gt;getFavico</span>
+<span class="U1">nFile();&nbsp;?</span>
+<span class="U1">&gt;"&nbsp;type="i</span>
+<span class="U1">mage/x-ico</span>
+<span class="U1">n"&nbsp;/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">21</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;link&nbsp;rel=</span>
+<span class="U2">"icon"&nbsp;hre</span>
+<span class="U2">f="&lt;?php&nbsp;e</span>
+<span class="U2">cho&nbsp;$this-</span>
+<span class="U2">&gt;getFavico</span>
+<span class="U2">nFile();&nbsp;?</span>
+<span class="U2">&gt;"&nbsp;type="i</span>
+<span class="U2">mage/x-ico</span>
+<span class="U2">n"&nbsp;/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">22</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;link&nbsp;rel=</span>
+<span class="U1">"shortcut&nbsp;</span>
+<span class="U1">icon"&nbsp;href</span>
+<span class="U1">="&lt;?php&nbsp;ec</span>
+<span class="U1">ho&nbsp;$this-&gt;</span>
+<span class="U1">getFavicon</span>
+<span class="U1">File();&nbsp;?&gt;</span>
+<span class="U1">"&nbsp;type="im</span>
+<span class="U1">age/x-icon</span>
+<span class="U1">"&nbsp;/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">22</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;link&nbsp;rel=</span>
+<span class="U2">"shortcut&nbsp;</span>
+<span class="U2">icon"&nbsp;href</span>
+<span class="U2">="&lt;?php&nbsp;ec</span>
+<span class="U2">ho&nbsp;$this-&gt;</span>
+<span class="U2">getFavicon</span>
+<span class="U2">File();&nbsp;?&gt;</span>
+<span class="U2">"&nbsp;type="im</span>
+<span class="U2">age/x-icon</span>
+<span class="U2">"&nbsp;/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">23</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1" />
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">23</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2" />
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">24</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;//In</span>
+<span class="U1">clude&nbsp;Goog</span>
+<span class="U1">le&nbsp;fonts&nbsp;c</span>
+<span class="U1">haracter&nbsp;s</span>
+<span class="U1">ubsets&nbsp;(su</span>
+<span class="U1">ch&nbsp;as&nbsp;exte</span>
+<span class="U1">nded&nbsp;latin</span>
+<span class="U1">,&nbsp;cyrillic</span>
+<span class="U1">)</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">24</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;//In</span>
+<span class="U2">clude&nbsp;Goog</span>
+<span class="U2">le&nbsp;fonts&nbsp;c</span>
+<span class="U2">haracter&nbsp;s</span>
+<span class="U2">ubsets&nbsp;(su</span>
+<span class="U2">ch&nbsp;as&nbsp;exte</span>
+<span class="U2">nded&nbsp;latin</span>
+<span class="U2">,&nbsp;cyrillic</span>
+<span class="U2">)</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">25</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(is</span>
+<span class="U1">set($d['fo</span>
+<span class="U1">nt']['prim</span>
+<span class="U1">ary_char_l</span>
+<span class="U1">atin_ext']</span>
+<span class="U1">)&nbsp;&amp;&amp;&nbsp;$d['f</span>
+<span class="U1">ont']['pri</span>
+<span class="U1">mary_char_</span>
+<span class="U1">latin_ext'</span>
+<span class="U1">]==1&nbsp;)</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">25</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(is</span>
+<span class="U2">set($d['fo</span>
+<span class="U2">nt']['prim</span>
+<span class="U2">ary_char_l</span>
+<span class="U2">atin_ext']</span>
+<span class="U2">)&nbsp;&amp;&amp;&nbsp;$d['f</span>
+<span class="U2">ont']['pri</span>
+<span class="U2">mary_char_</span>
+<span class="U2">latin_ext'</span>
+<span class="U2">]==1&nbsp;)</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">26</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$c</span>
+<span class="U1">harSubset&nbsp;</span>
+<span class="U1">.=&nbsp;',latin</span>
+<span class="U1">-ext';</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">26</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$c</span>
+<span class="U2">harSubset&nbsp;</span>
+<span class="U2">.=&nbsp;',latin</span>
+<span class="U2">-ext';</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">27</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(is</span>
+<span class="U1">set($d['fo</span>
+<span class="U1">nt']['cust</span>
+<span class="U1">om_char_su</span>
+<span class="U1">bset'])&nbsp;&amp;&amp;</span>
+<span class="U1">&nbsp;$d['font'</span>
+<span class="U1">]['custom_</span>
+<span class="U1">char_subse</span>
+<span class="U1">t'])</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">27</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(is</span>
+<span class="U2">set($d['fo</span>
+<span class="U2">nt']['cust</span>
+<span class="U2">om_char_su</span>
+<span class="U2">bset'])&nbsp;&amp;&amp;</span>
+<span class="U2">&nbsp;$d['font'</span>
+<span class="U2">]['custom_</span>
+<span class="U2">char_subse</span>
+<span class="U2">t'])</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">28</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$c</span>
+<span class="U1">harSubset&nbsp;</span>
+<span class="U1">.=&nbsp;','.$d[</span>
+<span class="U1">'font']['c</span>
+<span class="U1">ustom_char</span>
+<span class="U1">_subset'];</span>
+<span class="U1" />
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">28</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$c</span>
+<span class="U2">harSubset&nbsp;</span>
+<span class="U2">.=&nbsp;','.$d[</span>
+<span class="U2">'font']['c</span>
+<span class="U2">ustom_char</span>
+<span class="U2">_subset'];</span>
+<span class="U2" />
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">29</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;$font_</span>
+<span class="U1">sizes&nbsp;=&nbsp;"%</span>
+<span class="U1">3A300%2C30</span>
+<span class="U1">0italic%2C</span>
+<span class="U1">400%2C400i</span>
+<span class="U1">talic%2C60</span>
+<span class="U1">0%2C600ita</span>
+<span class="U1">lic%2C700%</span>
+<span class="U1">2C700itali</span>
+<span class="U1">c%2C800%2C</span>
+<span class="U1">800italic"</span>
+<span class="U1">;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">29</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;$font_</span>
+<span class="U2">sizes&nbsp;=&nbsp;"%</span>
+<span class="U2">3A300%2C30</span>
+<span class="U2">0italic%2C</span>
+<span class="U2">400%2C400i</span>
+<span class="U2">talic%2C60</span>
+<span class="U2">0%2C600ita</span>
+<span class="U2">lic%2C700%</span>
+<span class="U2">2C700itali</span>
+<span class="U2">c%2C800%2C</span>
+<span class="U2">800italic"</span>
+<span class="U2">;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">30</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">30</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">31</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;if&nbsp;(</span>
+<span class="U1">$d['font']</span>
+<span class="U1">['custom']</span>
+<span class="U1">&nbsp;&amp;&amp;&nbsp;$d['fo</span>
+<span class="U1">nt']['prim</span>
+<span class="U1">ary_font_f</span>
+<span class="U1">amily_grou</span>
+<span class="U1">p']&nbsp;==&nbsp;'go</span>
+<span class="U1">ogle'):&nbsp;?&gt;</span>
+<span class="U1" />
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">31</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;if&nbsp;(</span>
+<span class="U2">$d['font']</span>
+<span class="U2">['custom']</span>
+<span class="U2">&nbsp;&amp;&amp;&nbsp;$d['fo</span>
+<span class="U2">nt']['prim</span>
+<span class="U2">ary_font_f</span>
+<span class="U2">amily_grou</span>
+<span class="U2">p']&nbsp;==&nbsp;'go</span>
+<span class="U2">ogle'):&nbsp;?&gt;</span>
+<span class="U2" />
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">32</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;link&nbsp;rel=</span>
+<span class="U1">"styleshee</span>
+<span class="U1">t"&nbsp;href='/</span>
+<span class="U1">/fonts.goo</span>
+<span class="U1">gleapis.co</span>
+<span class="U1">m/css?fami</span>
+<span class="U1">ly=&lt;?php&nbsp;e</span>
+<span class="U1">cho&nbsp;str_re</span>
+<span class="U1">place('&nbsp;',</span>
+<span class="U1">&nbsp;'+',&nbsp;$d['</span>
+<span class="U1">font']['pr</span>
+<span class="U1">imary_font</span>
+<span class="U1">_family'])</span>
+<span class="U1">.$font_siz</span>
+<span class="U1">es;&nbsp;echo&nbsp;$</span>
+<span class="U1">charSubset</span>
+<span class="U1">;&nbsp;?&gt;'&nbsp;type</span>
+<span class="U1">='text/css</span>
+<span class="U1">'&nbsp;/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">32</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;link&nbsp;rel=</span>
+<span class="U2">"styleshee</span>
+<span class="U2">t"&nbsp;href='/</span>
+<span class="U2">/fonts.goo</span>
+<span class="U2">gleapis.co</span>
+<span class="U2">m/css?fami</span>
+<span class="U2">ly=&lt;?php&nbsp;e</span>
+<span class="U2">cho&nbsp;str_re</span>
+<span class="U2">place('&nbsp;',</span>
+<span class="U2">&nbsp;'+',&nbsp;$d['</span>
+<span class="U2">font']['pr</span>
+<span class="U2">imary_font</span>
+<span class="U2">_family'])</span>
+<span class="U2">.$font_siz</span>
+<span class="U2">es;&nbsp;echo&nbsp;$</span>
+<span class="U2">charSubset</span>
+<span class="U2">;&nbsp;?&gt;'&nbsp;type</span>
+<span class="U2">='text/css</span>
+<span class="U2">'&nbsp;/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">33</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;else</span>
+<span class="U1">:&nbsp;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">33</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;else</span>
+<span class="U2">:&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">34</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;link&nbsp;rel=</span>
+<span class="U1">"styleshee</span>
+<span class="U1">t"&nbsp;href="/</span>
+<span class="U1">/fonts.goo</span>
+<span class="U1">gleapis.co</span>
+<span class="U1">m/css?fami</span>
+<span class="U1">ly=Open+Sa</span>
+<span class="U1">ns%3A300%2</span>
+<span class="U1">C300italic</span>
+<span class="U1">%2C400%2C4</span>
+<span class="U1">00italic%2</span>
+<span class="U1">C600%2C600</span>
+<span class="U1">italic%2C7</span>
+<span class="U1">00%2C700it</span>
+<span class="U1">alic%2C800</span>
+<span class="U1">%2C800ital</span>
+<span class="U1">ic&amp;amp;v1&amp;</span>
+<span class="U1">amp;subset</span>
+<span class="U1">=latin%2Cl</span>
+<span class="U1">atin-ext"&nbsp;</span>
+<span class="U1">type="text</span>
+<span class="U1">/css"&nbsp;medi</span>
+<span class="U1">a="screen"</span>
+<span class="U1">/&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">34</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;link&nbsp;rel=</span>
+<span class="U2">"styleshee</span>
+<span class="U2">t"&nbsp;href="/</span>
+<span class="U2">/fonts.goo</span>
+<span class="U2">gleapis.co</span>
+<span class="U2">m/css?fami</span>
+<span class="U2">ly=Open+Sa</span>
+<span class="U2">ns%3A300%2</span>
+<span class="U2">C300italic</span>
+<span class="U2">%2C400%2C4</span>
+<span class="U2">00italic%2</span>
+<span class="U2">C600%2C600</span>
+<span class="U2">italic%2C7</span>
+<span class="U2">00%2C700it</span>
+<span class="U2">alic%2C800</span>
+<span class="U2">%2C800ital</span>
+<span class="U2">ic&amp;amp;v1&amp;</span>
+<span class="U2">amp;subset</span>
+<span class="U2">=latin%2Cl</span>
+<span class="U2">atin-ext"&nbsp;</span>
+<span class="U2">type="text</span>
+<span class="U2">/css"&nbsp;medi</span>
+<span class="U2">a="screen"</span>
+<span class="U2">/&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">35</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;endi</span>
+<span class="U1">f;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">35</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;endi</span>
+<span class="U2">f;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="C1" style="text-align: right;">36</td>
+<td class="C1" style="text-decoration: none;">&nbsp;</td>
+<td class="nbgC1">
+<span class="R1">&lt;link&nbsp;href</span>
+<span class="R1">='//fonts.</span>
+<span class="R1">googleapis</span>
+<span class="R1">.com/css?f</span>
+<span class="R1">amily=Shad</span>
+<span class="R1">ows+Into+L</span>
+<span class="R1">ight'&nbsp;rel=</span>
+<span class="R1">'styleshee</span>
+<span class="R1">t'&nbsp;type='t</span>
+<span class="R1">ext/css'/&gt;</span>
+<span class="R1" />
+</td>
+<td>&nbsp;</td>
+<td class="C2" style="text-align: right;">36</td>
+<td class="C2" style="text-decoration: none;">&nbsp;</td>
+<td class="nbgC2">
+<span class="U2">&lt;link</span>
+<span class="U2">&nbsp;</span>
+<span class="U2">href="</span>
+<span class="R2">
+<div class="IP"> </div>
+</span>
+<span class="U2">//fonts.go</span>
+<span class="U2">ogleapis.c</span>
+<span class="U2">om/css?fam</span>
+<span class="U2">ily=</span>
+<span class="I2">Shadows+In</span>
+<span class="I2">to+Light|O</span>
+<span class="I2">swald:300,</span>
+<span class="I2">400,700|</span>
+<span class="U2">Poppins:30</span>
+<span class="U2">0,400,500,</span>
+<span class="U2">600,700</span>
+<span class="I2">|Open+Sans</span>
+<span class="I2">%3A300%2C3</span>
+<span class="I2">00italic%2</span>
+<span class="I2">C400%2C400</span>
+<span class="I2">italic%2C6</span>
+<span class="I2">00%2C600it</span>
+<span class="I2">alic%2C700</span>
+<span class="I2">%2C700ital</span>
+<span class="I2">ic%2C800%2</span>
+<span class="I2">C800italic</span>
+<span class="U2">"</span>
+<span class="U2">&nbsp;</span>
+<span class="U2">rel="style</span>
+<span class="U2">sheet"&gt;</span>
+<span class="U2" />
+</td>
+</tr>
+<tr>
+<td class="C1" style="text-align: right;">37</td>
+<td class="C1" style="text-decoration: none;">&nbsp;</td>
+<td class="nbgC1">
+<span class="R1">&lt;link&nbsp;href</span>
+<span class="R1">="https://</span>
+<span class="R1">fonts.goog</span>
+<span class="R1">leapis.com</span>
+<span class="R1">/css?famil</span>
+<span class="R1">y=Oswald:3</span>
+<span class="R1">00,400,700</span>
+<span class="R1">"&nbsp;rel="sty</span>
+<span class="R1">lesheet"&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+</tr>
+<tr>
+<td class="C1" style="text-align: right;">38</td>
+<td class="C1" style="text-decoration: none;">&nbsp;</td>
+<td class="nbgC1">
+<span class="U1">&lt;link</span>
+<span class="U1">&nbsp;</span>
+<span class="U1">href="</span>
+<span class="R1">https:</span>
+<span class="U1">//fonts.go</span>
+<span class="U1">ogleapis.c</span>
+<span class="U1">om/css?fam</span>
+<span class="U1">ily=</span>
+<span class="I1">
+<div class="IP"> </div>
+</span>
+<span class="U1">Poppins:30</span>
+<span class="U1">0,400,500,</span>
+<span class="U1">600,700</span>
+<span class="I1">
+<div class="IP"> </div>
+</span>
+<span class="U1">"</span>
+<span class="U1">&nbsp;</span>
+<span class="U1">rel="style</span>
+<span class="U1">sheet"&gt;</span>
+<span class="U1" />
+</td>
+<td>&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+<td style="background-color: #f5f5f5;">&nbsp;</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">39</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;echo</span>
+<span class="U1">&nbsp;$this-&gt;ge</span>
+<span class="U1">tCssJsHtml</span>
+<span class="U1">()&nbsp;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">37</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;echo</span>
+<span class="U2">&nbsp;$this-&gt;ge</span>
+<span class="U2">tCssJsHtml</span>
+<span class="U2">()&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">40</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;echo</span>
+<span class="U1">&nbsp;$this-&gt;ge</span>
+<span class="U1">tChildHtml</span>
+<span class="U1">()&nbsp;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">38</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;echo</span>
+<span class="U2">&nbsp;$this-&gt;ge</span>
+<span class="U2">tChildHtml</span>
+<span class="U2">()&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">41</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;echo</span>
+<span class="U1">&nbsp;$this-&gt;he</span>
+<span class="U1">lper('core</span>
+<span class="U1">/js')-&gt;get</span>
+<span class="U1">Translator</span>
+<span class="U1">Script()&nbsp;?</span>
+<span class="U1">&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">39</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;echo</span>
+<span class="U2">&nbsp;$this-&gt;he</span>
+<span class="U2">lper('core</span>
+<span class="U2">/js')-&gt;get</span>
+<span class="U2">Translator</span>
+<span class="U2">Script()&nbsp;?</span>
+<span class="U2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">42</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;?php&nbsp;echo</span>
+<span class="U1">&nbsp;$this-&gt;ge</span>
+<span class="U1">tIncludes(</span>
+<span class="U1">)&nbsp;?&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">40</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;?php&nbsp;echo</span>
+<span class="U2">&nbsp;$this-&gt;ge</span>
+<span class="U2">tIncludes(</span>
+<span class="U2">)&nbsp;?&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">43</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;script&nbsp;ty</span>
+<span class="U1">pe="text/j</span>
+<span class="U1">avascript"</span>
+<span class="U1">&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">41</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;script&nbsp;ty</span>
+<span class="U2">pe="text/j</span>
+<span class="U2">avascript"</span>
+<span class="U2">&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">44</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">//&lt;![CDATA</span>
+<span class="U1">[</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">42</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">//&lt;![CDATA</span>
+<span class="U2">[</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">45</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">if&nbsp;(typeof</span>
+<span class="U1">&nbsp;dailydeal</span>
+<span class="U1">TimeCounte</span>
+<span class="U1">rsCategory</span>
+<span class="U1">&nbsp;==&nbsp;'undef</span>
+<span class="U1">ined')&nbsp;{</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">43</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">if&nbsp;(typeof</span>
+<span class="U2">&nbsp;dailydeal</span>
+<span class="U2">TimeCounte</span>
+<span class="U2">rsCategory</span>
+<span class="U2">&nbsp;==&nbsp;'undef</span>
+<span class="U2">ined')&nbsp;{</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">46</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va</span>
+<span class="U1">r&nbsp;dailydea</span>
+<span class="U1">lTimeCount</span>
+<span class="U1">ersCategor</span>
+<span class="U1">y&nbsp;=&nbsp;new&nbsp;Ar</span>
+<span class="U1">ray();</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">44</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va</span>
+<span class="U2">r&nbsp;dailydea</span>
+<span class="U2">lTimeCount</span>
+<span class="U2">ersCategor</span>
+<span class="U2">y&nbsp;=&nbsp;new&nbsp;Ar</span>
+<span class="U2">ray();</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">47</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va</span>
+<span class="U1">r&nbsp;i&nbsp;=&nbsp;0;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">45</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va</span>
+<span class="U2">r&nbsp;i&nbsp;=&nbsp;0;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">48</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">}</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">46</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">}</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">49</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">//]]&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">47</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">//]]&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">50</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;/script&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">48</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;/script&gt;</span>
+</td>
+</tr>
+<tr>
+<td class="U1" style="text-align: right;">51</td>
+<td class="U1" style="text-decoration: none;">&nbsp;</td>
+<td class="U1">
+<span class="U1">&lt;!--&lt;?php&nbsp;</span>
+<span class="U1">echo&nbsp;"Port</span>
+<span class="U1">o&nbsp;Magento&nbsp;</span>
+<span class="U1">Theme:&nbsp;v".</span>
+<span class="U1">Mage::getC</span>
+<span class="U1">onfig()-&gt;g</span>
+<span class="U1">etModuleCo</span>
+<span class="U1">nfig("Smar</span>
+<span class="U1">twave_Port</span>
+<span class="U1">o")-&gt;versi</span>
+<span class="U1">on;&nbsp;?&gt;--&gt;</span>
+</td>
+<td>&nbsp;</td>
+<td class="U2" style="text-align: right;">49</td>
+<td class="U2" style="text-decoration: none;">&nbsp;</td>
+<td class="U2">
+<span class="U2">&lt;!--&lt;?php&nbsp;</span>
+<span class="U2">echo&nbsp;"Port</span>
+<span class="U2">o&nbsp;Magento&nbsp;</span>
+<span class="U2">Theme:&nbsp;v".</span>
+<span class="U2">Mage::getC</span>
+<span class="U2">onfig()-&gt;g</span>
+<span class="U2">etModuleCo</span>
+<span class="U2">nfig("Smar</span>
+<span class="U2">twave_Port</span>
+<span class="U2">o")-&gt;versi</span>
+<span class="U2">on;&nbsp;?&gt;--&gt;</span>
+</td>
+</tr>
+</table>
+<p class="copyright" style="margin-top: 25px; padding-top: 2px; border-top: solid #a0a0a0 1px; max-width: none;">Araxis Merge (but not the data content of this report) is Copyright  &copy; 1993-2010 Araxis Ltd (<a href="http://www.araxis.com/" title="Link to the Araxis corporate web site">www.araxis.com</a>). All rights reserved.</p>
+</body>
+</html>
