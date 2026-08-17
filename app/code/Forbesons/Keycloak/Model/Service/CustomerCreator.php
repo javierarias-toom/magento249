@@ -55,10 +55,8 @@ class CustomerCreator
         $customer->setConfirmation(null);
 
         try {
+            $customer->setPasswordHash($this->encryptor->getHash($password, true));
             $this->customerResource->save($customer);
-            $this->customerResource->saveAttribute($customer, 'password_hash');
-            $customer->setData('password_hash', $this->encryptor->getHash($password, true));
-            $this->customerResource->saveAttribute($customer, 'password_hash');
         } catch (\Exception $e) {
             throw new LocalizedException(__('Unable to create a customer account for the email %1.', $profile['email']), $e);
         }

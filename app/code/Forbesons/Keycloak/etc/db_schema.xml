@@ -7,6 +7,9 @@
         <constraint xsi:type="primary" refId="PRIMARY">
             <column name="identity_id"/>
         </constraint>
+        <index xsi:type="index" refId="FORBESONS_KEYCLOAK_IDENTITY_ID_IDX">
+            <column name="identity_id"/>
+        </index>
         <constraint xsi:type="unique" refId="FORBESONS_KEYCLOAK_IDENTITY_SUB">
             <column name="keycloak_sub"/>
         </constraint>
