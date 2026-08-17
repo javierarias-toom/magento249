@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Forbesons. All rights reserved.
+ *
+ * @var \Forbesons\Keycloak\Block\LoginButton $block
+ */
+?>
+<div class="forbesons-keycloak-login" style="margin: 20px 0; text-align: center;">
+    <a class="action primary forbesons-keycloak-login-button"
+       href="<?= $block->escapeUrl($block->getLoginUrl()) ?>">
+        <?= $block->escapeHtml(__('Sign in with Forbesons')) ?>
+    </a>
+    <div class="forbesons-keycloak-divider" style="margin: 15px 0; color: #aaa; text-transform: uppercase; font-size: 12px;">
+        <?= $block->escapeHtml(__('or')) ?>
+    </div>
+</div>
