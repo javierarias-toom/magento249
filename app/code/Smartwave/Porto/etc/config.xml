@@ -27,16 +27,16 @@
                 <footer_ribbon>1</footer_ribbon>
                 <footer_ribbon_text>Ribbon Text</footer_ribbon_text>
                 <footer_middle_column_1>custom</footer_middle_column_1>
-                <footer_middle_column_1_custom>porto_footer_links</footer_middle_column_1_custom>
+                <footer_middle_column_1_custom></footer_middle_column_1_custom>
                 <footer_middle_column_1_size>3</footer_middle_column_1_size>
                 <footer_middle_column_2>custom</footer_middle_column_2>
-                <footer_middle_column_2_custom>porto_footer_contact_information</footer_middle_column_2_custom>
+                <footer_middle_column_2_custom></footer_middle_column_2_custom>
                 <footer_middle_column_2_size>3</footer_middle_column_2_size>
                 <footer_middle_column_3>custom</footer_middle_column_3>
-                <footer_middle_column_3_custom>porto_footer_features</footer_middle_column_3_custom>
+                <footer_middle_column_3_custom></footer_middle_column_3_custom>
                 <footer_middle_column_3_size>3</footer_middle_column_3_size>
                 <footer_middle_column_4>newsletter</footer_middle_column_4>
-                <footer_middle_column_4_custom>porto_footer_links</footer_middle_column_4_custom>
+                <footer_middle_column_4_custom></footer_middle_column_4_custom>
                 <footer_middle_column_4_size>3</footer_middle_column_4_size>
                 <footer_middle_2>0</footer_middle_2>
                 <footer_middle_2_column_1>custom</footer_middle_2_column_1>
@@ -100,7 +100,7 @@
             <newsletter>
                 <enable>1</enable>
                 <delay>5000</delay>
-                <logo_src>default/logo.png</logo_src>
+                <logo_src></logo_src>
                 <content><![CDATA[<h2>STAY IN THE KNOW</h2><p>Subscribe to the Forbesons newsletter to receive updates on top picks, offers, and new arrivals.</p>]]></content>
                 <width>700px</width>
                 <height>320px</height>

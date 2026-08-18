@@ -11,6 +11,12 @@
     $_helper = $this->helper('Smartwave\Porto\Helper\Data');
 
     $popup = $_helper->getConfig('porto_settings/newsletter');
+    $popupContent = isset($popup['content']) ? (string)$popup['content'] : '';
+    if (stripos($popupContent, 'Porto') !== false || stripos($popupContent, 'eCommerce') !== false || stripos($popupContent, '@portoecommerce') !== false) {
+        $popupContent = str_ireplace(['Porto eCommerce', 'Porto Ecommerce', 'PORTO', 'Porto'], 'Forbesons', $popupContent);
+        $popupContent = str_ireplace('Forbesons eCommerce', 'Forbesons', $popupContent);
+        $popupContent = preg_replace('/@portoecommerce/i', '@forbesons', $popupContent);
+    }
     if($popup['enable']) {
         $delay = $popup["delay"];
 ?>
@@ -123,6 +129,10 @@ require([
                 }
             }
 
+            if ($logoUrl && preg_match('/(logo(?:_ecom|_ecomwhite|_ecomblack)?|default\/logo)/i', (string)$logoUrl)) {
+                $logoUrl = null;
+            }
+
             if ($logoUrl) {
         ?>
         <div class="text_left mb-4 pb-1">
@@ -131,7 +141,7 @@ require([
         <?php
             }
         ?>
-        <?php echo $popup["content"]; ?>
+        <?php echo $popupContent; ?>
         <form class="form subscribe mb-1"
             novalidate
             action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"

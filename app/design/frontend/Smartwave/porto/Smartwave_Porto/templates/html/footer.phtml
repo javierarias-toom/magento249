@@ -137,23 +137,35 @@
             <?php
             }
             if($footer['footer_bottom_custom_1']){
-                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
-                if($block) {
-                    $block->setBlockId($footer['footer_bottom_custom_1']);
+                $customBottomBlock = $footer['footer_bottom_custom_1'];
+                if (stripos((string)$customBottomBlock, 'porto_footer_logo') !== false || stripos((string)$customBottomBlock, 'porto_footer_bottom_custom_block') !== false || stripos((string)$customBottomBlock, 'portoecommerce') !== false) {
+                    $customBottomBlock = null;
                 }
-                if($block){
-                    echo '<div class="custom-block">'.$block->toHtml().'</div>';
+                if ($customBottomBlock) {
+                    $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                    if($block) {
+                        $block->setBlockId($customBottomBlock);
+                    }
+                    if($block){
+                        echo '<div class="custom-block">'.$block->toHtml().'</div>';
+                    }
                 }
             }
             ?>
             <?php
             if($footer['footer_bottom_custom_2']){
-                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
-                if($block) {
-                    $block->setBlockId($footer['footer_bottom_custom_2']);
+                $customBottomBlock2 = $footer['footer_bottom_custom_2'];
+                if (stripos((string)$customBottomBlock2, 'porto_footer_logo') !== false || stripos((string)$customBottomBlock2, 'porto_footer_bottom_custom_block') !== false || stripos((string)$customBottomBlock2, 'portoecommerce') !== false) {
+                    $customBottomBlock2 = null;
                 }
-                if($block){
-                    echo '<div class="custom-block f-right">'.$block->toHtml().'</div>';
+                if ($customBottomBlock2) {
+                    $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                    if($block) {
+                        $block->setBlockId($customBottomBlock2);
+                    }
+                    if($block){
+                        echo '<div class="custom-block f-right">'.$block->toHtml().'</div>';
+                    }
                 }
             }
             ?>
