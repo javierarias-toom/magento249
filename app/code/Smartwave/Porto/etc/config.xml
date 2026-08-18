@@ -18,8 +18,8 @@
                 <compare_link>0</compare_link>
             </header>
             <footer>
-                <footer_newsletter_title>Be the First to Know</footer_newsletter_title>
-                <footer_newsletter_text><![CDATA[Get all the latest information on Events,<br/>Sales and Offers. Sign up for newsletter today.]]></footer_newsletter_text>
+                <footer_newsletter_title>Forbesons</footer_newsletter_title>
+                <footer_newsletter_text><![CDATA[Stay connected with Forbesons for the latest arrivals, exclusive offers, and updates.]]></footer_newsletter_text>
                 <footer_top>0</footer_top>
                 <footer_top_block>custom</footer_top_block>
                 <footer_top_custom>porto_footer_top_custom_block</footer_top_custom>
@@ -54,8 +54,8 @@
                 <footer_bottom>1</footer_bottom>
                 <footer_store_switcher>0</footer_store_switcher>
                 <footer_logo_src></footer_logo_src>
-                <footer_bottom_copyrights><![CDATA[&copy;Copyright 2015 by SW-THEMES. All Rights Reserved.]]></footer_bottom_copyrights>
-                <footer_bottom_custom_1>porto_footer_bottom_custom_block</footer_bottom_custom_1>
+                <footer_bottom_copyrights><![CDATA[&copy; Copyright 2026 by Forbesons. All rights reserved.]]></footer_bottom_copyrights>
+                <footer_bottom_custom_1></footer_bottom_custom_1>
                 <footer_bottom_custom_2></footer_bottom_custom_2>
             </footer>
             <category>
@@ -101,7 +101,7 @@
                 <enable>1</enable>
                 <delay>5000</delay>
                 <logo_src>default/logo.png</logo_src>
-                <content><![CDATA[<h2>BE THE FIRST TO KNOW</h2><p>Subscribe to the Porto eCommerce newsletter to receive timely updates from your favorite products.</p>]]></content>
+                <content><![CDATA[<h2>STAY IN THE KNOW</h2><p>Subscribe to the Forbesons newsletter to receive updates on top picks, offers, and new arrivals.</p>]]></content>
                 <width>700px</width>
                 <height>320px</height>
                 <bg_color></bg_color>
@@ -112,7 +112,7 @@
                 <enable>1</enable>
                 <api_key></api_key>
                 <full_width>0</full_width>
-                <address>Porto2 Store</address>
+                <address>Forbesons Store</address>
                 <latitude>-34.398</latitude>
                 <longitude>150.884</longitude>
                 <zoom>18</zoom>

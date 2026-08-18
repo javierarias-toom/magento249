@@ -115,12 +115,9 @@
             $footerLogoUrl = null;
             if (!empty($footer['footer_logo_src'])) {
                 $footerLogoUrl = $this->getFooterLogoSrc();
-            }
-
-            if (!$footerLogoUrl) {
-                $logoBlock = $this->getLayout()->createBlock(\Magento\Theme\Block\Html\Header\Logo::class);
-                if ($logoBlock && $logoBlock->getLogoSrc()) {
-                    $footerLogoUrl = $logoBlock->getLogoSrc();
+                $isDefaultPortoAsset = isset($footer['footer_logo_src']) && stripos((string)$footer['footer_logo_src'], 'default/') === 0;
+                if ($isDefaultPortoAsset) {
+                    $footerLogoUrl = null;
                 }
             }
 
