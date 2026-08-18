@@ -43,8 +43,8 @@ class Auction extends AbstractModel implements AuctionInterface
         ScopeConfigInterface $scopeConfig,
         StoreManagerInterface $storeManager,
         BidFactory $bidFactory,
-        AbstractResource $resource = null,
-        AbstractDb $resourceCollection = null,
+        ?AbstractResource $resource = null,
+        ?AbstractDb $resourceCollection = null,
         array $data = []
     ) {
         $this->productRepository = $productRepository;
