@@ -5,6 +5,7 @@
 
 namespace Forbesons\AuctionApi\Api;
 
+use Forbesons\AuctionApi\Api\Data\BidInterface;
 use Forbesons\AuctionApi\Api\Data\BidSearchResultsInterface;
 
 interface BidRepositoryInterface
