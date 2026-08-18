@@ -5,6 +5,7 @@
             <module name="Magento_Catalog"/>
             <module name="Magento_Customer"/>
             <module name="Milople_Auction"/>
+            <module name="Forbesons_Keycloak"/>
         </sequence>
     </module>
 </config>

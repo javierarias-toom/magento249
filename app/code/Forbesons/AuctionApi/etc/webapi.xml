@@ -18,4 +18,10 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route url="/V1/auctions/:id/bids" method="POST">
+        <service class="Forbesons\AuctionApi\Api\BidRepositoryInterface" method="placeBid"/>
+        <resources>
+            <resource ref="Forbesons_AuctionApi::auctions"/>
+        </resources>
+    </route>
 </routes>

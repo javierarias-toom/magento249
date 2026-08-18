@@ -67,6 +67,41 @@ Respuesta (ordenadas por `created_at` descendente):
 }
 ```
 
+### 4. Registrar una puja (POST)
+
+```
+POST /rest/V1/auctions/{id}/bids
+Authorization: Bearer <token de admin>
+Content-Type: application/json
+```
+
+Body:
+
+```json
+{
+  "customerSub": "770315e4-38ef-4cdb-8ae4-20b832591ba7",
+  "customerName": "Ana Perez",
+  "amount": 120
+}
+```
+
+Replica la escritura que hace el frontend de Milople al pujar:
+
+1. Inserta la puja en `manage_bids` (`bid_status='Processing'`, `winner_status='Processing'`).
+2. Actualiza (upsert por `product_id` + `customer_id`) la fila en `manage_bids_detail`.
+3. Actualiza `manage_auction.starting_price = amount` y `next_bid_amt = amount + incremento`.
+
+El `customerSub` (subject de Keycloak) se resuelve a `customer_id` de Magento vía la tabla
+`forbesons_keycloak_identity`. Si el sub no está enlazado a un cliente de Magento se devuelve
+error. El endpoint requiere token de administración (recurso ACL `Forbesons_AuctionApi::auctions`).
+
+Errores posibles: `404` si la subasta no existe, `400` si la subasta no está activa o el sub
+no tiene cliente enlazado.
+
+La API Node llama a este endpoint **después** de aceptar la puja en Redis (anti-sniping) de
+forma **asíncrona best-effort**: si Magento falla, la puja ya quedó aceptada en Redis/Postgres
+y el error se registra en el log sin rechazar la puja.
+
 ---
 
 ## Mapeo de campos (API → tabla Milople)
@@ -130,12 +165,12 @@ Respuesta (ordenadas por `created_at` descendente):
 
 ## Decisiones de seguridad
 
-- **Solo lectura y solo GET.** No se exponen métodos de creación/modificación de subastas ni de
-  pujas por esta API.
-- **Acceso `anonymous`** en las tres rutas (los datos de subastas son públicos en el frontend de
-  Milople). Las pujas incluyen `customer_name`, que también es visible públicamente en la página
-  de producto de Milople. Si se quisiera restringir, cambiar `resource ref="anonymous"` por un
-  recurso ACL propio en `etc/webapi.xml`.
+- **Lectura anónima, escritura autenticada.** Los GET son `anonymous` (los datos de subastas son
+  públicos en el frontend de Milople). El único POST (`/V1/auctions/:id/bids`) requiere token de
+  administración (`Forbesons_AuctionApi::auctions`), porque la API Node lo invoca con el token de
+  admin y la resolución sub→customer se hace de forma confiable del lado del servidor.
+- Las pujas incluyen `customer_name`, que también es visible públicamente en la página de producto
+  de Milople.
 - **No hay `db_schema.xml` propio**: el módulo reutiliza las tablas declaradas por
   `Milople_Auction` y no crea ni altera tablas.
 
