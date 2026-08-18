@@ -127,6 +127,8 @@ class BidRepository implements BidRepositoryInterface
             'auction_id' => $auctionId,
             'bid_status' => 'Processing',
             'winner_status' => 'Processing',
+            'mail_chk' => 0,
+            'expire_link' => 0,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         $bidId = (int)$connection->lastInsertId();
@@ -155,6 +157,8 @@ class BidRepository implements BidRepositoryInterface
                 'auction_id' => $auctionId,
                 'bid_status' => 'Processing',
                 'winner_status' => 'Processing',
+                'mail_chk' => 0,
+                'expire_link' => 0,
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
         }
