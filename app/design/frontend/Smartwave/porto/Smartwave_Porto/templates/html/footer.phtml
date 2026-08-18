@@ -113,8 +113,9 @@
         <div class="container">
             <?php
             if($footer['footer_logo_src']){
-
                 $url = $this->getFooterLogoSrc();
+                $isDefaultPortoAsset = stripos($url, 'logo/default/') !== false || stripos($url, '/default/logo') !== false || stripos($url, 'default/logo_') !== false;
+                if (!$isDefaultPortoAsset) {
             ?>
             <?php if ($this->isHomePage()):?>
                 <strong class="logo">
@@ -128,6 +129,7 @@
                 </a>
             <?php endif?>
             <?php
+                }
             }
             if($footer['footer_bottom_custom_1']){
                 $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');

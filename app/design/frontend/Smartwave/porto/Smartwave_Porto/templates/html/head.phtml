@@ -95,12 +95,15 @@ require([
                 <?php if ($this->getConfig('porto_settings/header/sticky_header_logo')): ?>
                 <?php
                 if($logo_src = $this->getConfig('porto_settings/header/sticky_header_logo_src')){
-                    $folderName = \Smartwave\Porto\Model\Config\Backend\Image\Stickylogo::UPLOAD_DIR;
-                    $path = $folderName . '/' . $logo_src;
-                    $imageUrl = $porto_helper->getBaseUrl() . $path;
+                    $isDefaultPortoAsset = stripos($logo_src, 'default/') === 0;
+                    if (!$isDefaultPortoAsset) {
+                        $folderName = \Smartwave\Porto\Model\Config\Backend\Image\Stickylogo::UPLOAD_DIR;
+                        $path = $folderName . '/' . $logo_src;
+                        $imageUrl = $porto_helper->getBaseUrl() . $path;
                 ?>
                 $(".sticky-logo img").attr("src","<?php echo $imageUrl; ?>");
                 <?php
+                    }
                 }
                 ?>
                 <?php endif; ?>
