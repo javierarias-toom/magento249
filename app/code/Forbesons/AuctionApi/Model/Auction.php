@@ -242,7 +242,7 @@ class Auction extends AbstractModel implements AuctionInterface
 
     private function getProduct(): ?\Magento\Catalog\Api\Data\ProductInterface
     {
-        $productId = (int)$this->getData(self::PRODUCT_ID);
+        $productId = $this->parseProductId($this->getData(self::PRODUCT_ID));
         if (!$productId) {
             return null;
         }
@@ -251,6 +251,18 @@ class Auction extends AbstractModel implements AuctionInterface
         } catch (NoSuchEntityException $e) {
             return null;
         }
+    }
+
+    private function parseProductId($raw): int
+    {
+        if ($raw === null || $raw === '') {
+            return 0;
+        }
+        $raw = trim((string)$raw);
+        if (preg_match('/(\d+)\s*$/', $raw, $matches)) {
+            return (int)$matches[1];
+        }
+        return (int)$raw;
     }
 
     private function getIncrementalRanges(): array

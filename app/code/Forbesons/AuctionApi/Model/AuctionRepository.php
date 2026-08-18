@@ -92,7 +92,7 @@ class AuctionRepository implements AuctionRepositoryInterface
     {
         $ids = [];
         foreach ($items as $auction) {
-            $productId = (int)$auction->getData('product_id');
+            $productId = $this->parseProductId($auction->getData('product_id'));
             if ($productId > 0) {
                 $ids[$productId] = $productId;
             }
@@ -108,7 +108,7 @@ class AuctionRepository implements AuctionRepositoryInterface
             $products[(int)$product->getId()] = $product;
         }
         foreach ($items as $auction) {
-            $productId = (int)$auction->getData('product_id');
+            $productId = $this->parseProductId($auction->getData('product_id'));
             if (isset($products[$productId])) {
                 $auction->setData('sku', (string)$products[$productId]->getSku());
                 $auction->setData('description', (string)$products[$productId]->getDescription());
@@ -144,5 +144,17 @@ class AuctionRepository implements AuctionRepositoryInterface
         foreach ($items as $auction) {
             $auction->setData('bids_count', (int)($counts[(int)$auction->getId()] ?? 0));
         }
+    }
+
+    private function parseProductId($raw): int
+    {
+        if ($raw === null || $raw === '') {
+            return 0;
+        }
+        $raw = trim((string)$raw);
+        if (preg_match('/(\d+)\s*$/', $raw, $matches)) {
+            return (int)$matches[1];
+        }
+        return (int)$raw;
     }
 }
