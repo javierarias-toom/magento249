@@ -39,16 +39,37 @@ class Customtabs extends \Magento\Framework\App\Helper\AbstractHelper
         }
         return $c;
     }
+    protected function normalizeConfigArray($value)
+    {
+        if (is_array($value)) {
+            return $value;
+        }
+
+        if (empty($value)) {
+            return [];
+        }
+
+        $unserialized = @unserialize($value);
+        if (is_array($unserialized)) {
+            return $unserialized;
+        }
+
+        return [];
+    }
+
     public function checkShowingTab($tab_cat_ids, $parent_cat_ids, $tab_prod_skus, $prod_sku) {
 		if(!$tab_cat_ids && !$tab_prod_skus)
             return true;
-        $tab_cat_ids = explode(",",$tab_cat_ids);
-        $tab_prod_skus = explode(",",$tab_prod_skus);
+
+        $tab_cat_ids = is_array($tab_cat_ids) ? $tab_cat_ids : array_filter(array_map('trim', explode(',', (string)$tab_cat_ids)));
+        $tab_prod_skus = is_array($tab_prod_skus) ? $tab_prod_skus : array_filter(array_map('trim', explode(',', (string)$tab_prod_skus)));
+        $parent_cat_ids = is_array($parent_cat_ids) ? $parent_cat_ids : [];
+
         if(count($tab_prod_skus)>0 && count($tab_cat_ids)>0){
-            if(in_array($prod_sku, $tab_prod_skus) || count(array_intersect($tab_cat_ids, $parent_cat_ids))>0)
+            if(in_array($prod_sku, $tab_prod_skus, true) || count(array_intersect($tab_cat_ids, $parent_cat_ids))>0)
                 return true;
         }
-        if(count($tab_prod_skus)>0 && in_array($prod_sku, $tab_prod_skus))
+        if(count($tab_prod_skus)>0 && in_array($prod_sku, $tab_prod_skus, true))
             return true;
         if(count($tab_cat_ids)>0 && count(array_intersect($tab_cat_ids, $parent_cat_ids))>0)
             return true;
@@ -62,13 +83,9 @@ class Customtabs extends \Magento\Framework\App\Helper\AbstractHelper
         return $this->_filterProvider->getBlockFilter()->filter(trim($content));
     }
     public function getCustomTabs($product){
-        $cms_tabs = $this->getConfig('porto_settings/product/custom_cms_tabs') ? $this->getConfig('porto_settings/product/custom_cms_tabs') : '';
-        $attr_tabs = $this->getConfig('porto_settings/product/custom_attr_tabs') ? $this->getConfig('porto_settings/product/custom_attr_tabs') : '';
+        $cms_tabs = $this->normalizeConfigArray($this->getConfig('porto_settings/product/custom_cms_tabs'));
+        $attr_tabs = $this->normalizeConfigArray($this->getConfig('porto_settings/product/custom_attr_tabs'));
         $_sku = $product->getSku();
-        if($cms_tabs)
-            $cms_tabs = unserialize($cms_tabs);
-        if($attr_tabs)
-            $attr_tabs = unserialize($attr_tabs); 
         $parents = array();
         if(count($cms_tabs)>0 || count($attr_tabs)>0) {
             foreach($product->getCategoryCollection() as $parent_cat) {
