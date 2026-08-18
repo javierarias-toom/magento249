@@ -10,7 +10,6 @@ use Forbesons\AuctionApi\Api\Data\BidInterface;
 use Forbesons\AuctionApi\Api\Data\BidSearchResultsInterface;
 use Forbesons\Keycloak\Model\Service\CustomerCreator;
 use Forbesons\Keycloak\Model\Service\IdentityLinker;
-use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -22,7 +21,6 @@ class BidRepository implements BidRepositoryInterface
     private ResourceConnection $resourceConnection;
     private AuctionFactory $auctionFactory;
     private IdentityLinker $identityLinker;
-    private CustomerRepositoryInterface $customerRepository;
     private CustomerCreator $customerCreator;
 
     public function __construct(
@@ -31,7 +29,6 @@ class BidRepository implements BidRepositoryInterface
         ResourceConnection $resourceConnection,
         AuctionFactory $auctionFactory,
         IdentityLinker $identityLinker,
-        CustomerRepositoryInterface $customerRepository,
         CustomerCreator $customerCreator
     ) {
         $this->bidFactory = $bidFactory;
@@ -39,7 +36,6 @@ class BidRepository implements BidRepositoryInterface
         $this->resourceConnection = $resourceConnection;
         $this->auctionFactory = $auctionFactory;
         $this->identityLinker = $identityLinker;
-        $this->customerRepository = $customerRepository;
         $this->customerCreator = $customerCreator;
     }
 
@@ -198,10 +194,17 @@ class BidRepository implements BidRepositoryInterface
 
     private function resolveCustomerId(string $customerSub, string $customerEmail): int
     {
-        try {
-            $customer = $this->customerRepository->getByEmail($customerEmail);
-            $customerId = (int)$customer->getId();
-        } catch (NoSuchEntityException $e) {
+        $connection = $this->resourceConnection->getConnection();
+        $customerTable = $connection->getTableName('customer_entity');
+        $existing = $connection->fetchRow(
+            $connection->select()
+                ->from($customerTable, ['entity_id'])
+                ->where('email = ?', strtolower($customerEmail))
+                ->limit(1)
+        );
+        if ($existing) {
+            $customerId = (int)$existing['entity_id'];
+        } else {
             $customer = $this->customerCreator->create([
                 'sub' => $customerSub,
                 'email' => $customerEmail,
@@ -210,7 +213,11 @@ class BidRepository implements BidRepositoryInterface
             ]);
             $customerId = (int)$customer->getId();
         }
-        $this->identityLinker->link($customerId, $customerSub);
+
+        $linked = $this->identityLinker->findByCustomerId($customerId);
+        if (!$linked) {
+            $this->identityLinker->link($customerId, $customerSub);
+        }
         return $customerId;
     }
 
