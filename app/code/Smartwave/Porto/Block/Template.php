@@ -29,6 +29,17 @@ class Template extends \Magento\Framework\View\Element\Template {
             'porto_settings/footer/footer_logo_src',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
+
+        if (empty($storeLogoPath)) {
+            return '';
+        }
+
+        $storeLogoPath = (string)$storeLogoPath;
+        if (preg_match('/(?:^|\/)(?:logo(?:_ecom(?:black|white|blue)?|\.svg)?(?:\.png|\.jpg|\.jpeg|\.gif|\.svg)?)$/i', $storeLogoPath)
+            && stripos($storeLogoPath, 'forbesons') === false) {
+            return '';
+        }
+
         $path = $folderName . '/' . $storeLogoPath;
         $logoUrl = $this->_urlBuilder
                 ->getBaseUrl(['_type' => \Magento\Framework\UrlInterface::URL_TYPE_MEDIA]) . $path;

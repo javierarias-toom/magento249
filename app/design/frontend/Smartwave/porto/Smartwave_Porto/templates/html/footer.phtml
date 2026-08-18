@@ -2,6 +2,13 @@
 /** @var \Magento\Framework\Escaper $escaper */
     $footer = $this->getConfig('porto_settings/footer');
 ?>
+<style>
+.footer img[src*="logo_ecom"],
+.footer img[src*="logo.svg"],
+.footer img[src*="/porto/"] {
+    display: none !important;
+}
+</style>
 <div class="footer">
 <?php
     if( $footer['footer_top'] ){
