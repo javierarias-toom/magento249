@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="380" height="120" viewBox="0 0 380 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Forbesons logo</title>
+  <desc id="desc">Forbesons brand wordmark for the Magento header.</desc>
+  <defs>
+    <linearGradient id="forbesonsGradient" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0b3d73"/>
+      <stop offset="100%" stop-color="#0d8bd8"/>
+    </linearGradient>
+  </defs>
+  <rect width="380" height="120" fill="transparent"/>
+  <text x="20" y="78" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="1" fill="url(#forbesonsGradient)">FORBESONS</text>
+  <rect x="20" y="88" width="180" height="4" rx="2" fill="#0d8bd8" opacity="0.9"/>
+</svg>

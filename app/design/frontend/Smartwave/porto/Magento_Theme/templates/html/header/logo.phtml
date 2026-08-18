@@ -26,6 +26,9 @@ $logoHeight = $logoSizeResolver !== null && $logoSizeResolver->getHeight()
     if ($logoSrc && preg_match('/(?:^|\/)(?:logo(?:_ecom(?:black|white|blue)?|\.svg)?(?:\.png|\.jpg|\.jpeg|\.gif|\.svg)?|default\/logo)/i', $logoSrc) && stripos($logoSrc, 'forbesons') === false) {
         $logoSrc = '';
     }
+    if (!$logoSrc) {
+        $logoSrc = $block->getViewFileUrl('images/forbesons-logo.svg');
+    }
 ?>
 <?php if ($logoSrc): ?>
     <?php if ($block->isHomePage()):?>
