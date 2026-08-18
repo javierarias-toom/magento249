@@ -109,9 +109,21 @@ require([
 <div class="newsletter row" id="newsletter_popup" style="display: none;">
     <div class="col-sm-8 pr-lg-4 vc_column_container col-md-7 col-10">
         <?php
-            $logoBlock = $this->getLayout()->createBlock(\Magento\Theme\Block\Html\Header\Logo::class);
-            if($logoBlock && $logoBlock->getLogoSrc()){
-                $logoUrl = $logoBlock->getLogoSrc();
+            $logoUrl = null;
+            if (!empty($popup['logo_src'])) {
+                $folderName = \Smartwave\Porto\Model\Config\Backend\Image\Newsletterlogo::UPLOAD_DIR;
+                $path = $folderName . '/' . $popup['logo_src'];
+                $logoUrl = $_helper->getBaseUrl() . $path;
+            }
+
+            if (!$logoUrl) {
+                $logoBlock = $this->getLayout()->createBlock(\Magento\Theme\Block\Html\Header\Logo::class);
+                if ($logoBlock && $logoBlock->getLogoSrc()) {
+                    $logoUrl = $logoBlock->getLogoSrc();
+                }
+            }
+
+            if ($logoUrl) {
         ?>
         <div class="text_left mb-4 pb-1">
           <img src="<?= $block->escapeUrl($logoUrl); ?>" alt="" />
