@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Forbesons\AuctionApi\Api\Data\AuctionInterface" type="Forbesons\AuctionApi\Model\Auction"/>
+    <preference for="Forbesons\AuctionApi\Api\AuctionRepositoryInterface" type="Forbesons\AuctionApi\Model\AuctionRepository"/>
+    <preference for="Forbesons\AuctionApi\Api\Data\BidInterface" type="Forbesons\AuctionApi\Model\Bid"/>
+    <preference for="Forbesons\AuctionApi\Api\BidRepositoryInterface" type="Forbesons\AuctionApi\Model\BidRepository"/>
+    <preference for="Forbesons\AuctionApi\Api\Data\AuctionSearchResultsInterface" type="Forbesons\AuctionApi\Model\AuctionSearchResults"/>
+    <preference for="Forbesons\AuctionApi\Api\Data\BidSearchResultsInterface" type="Forbesons\AuctionApi\Model\BidSearchResults"/>
+</config>

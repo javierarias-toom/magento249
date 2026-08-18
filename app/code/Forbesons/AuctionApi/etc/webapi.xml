@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/auctions" method="GET">
+        <service class="Forbesons\AuctionApi\Api\AuctionRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/auctions/:id" method="GET">
+        <service class="Forbesons\AuctionApi\Api\AuctionRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/auctions/:id/bids" method="GET">
+        <service class="Forbesons\AuctionApi\Api\BidRepositoryInterface" method="getBidsList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
