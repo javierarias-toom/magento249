@@ -30,8 +30,15 @@ interface BidRepositoryInterface
      * @param int $id Auction id
      * @param string $customerSub Keycloak subject of the bidding customer
      * @param string $customerName Display name of the bidding customer
+     * @param string $customerEmail Email of the bidding customer
      * @param float $amount Bid amount
      * @return \Forbesons\AuctionApi\Api\Data\BidInterface
      */
-    public function placeBid(?int $id, string $customerSub, string $customerName, float $amount): BidInterface;
+    public function placeBid(
+        ?int $id,
+        string $customerSub,
+        string $customerName,
+        string $customerEmail,
+        float $amount
+    ): BidInterface;
 }

@@ -8,6 +8,9 @@ namespace Forbesons\AuctionApi\Model;
 use Forbesons\AuctionApi\Api\BidRepositoryInterface;
 use Forbesons\AuctionApi\Api\Data\BidInterface;
 use Forbesons\AuctionApi\Api\Data\BidSearchResultsInterface;
+use Forbesons\Keycloak\Model\Service\CustomerCreator;
+use Forbesons\Keycloak\Model\Service\IdentityLinker;
+use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -18,17 +21,26 @@ class BidRepository implements BidRepositoryInterface
     private BidSearchResultsFactory $searchResultsFactory;
     private ResourceConnection $resourceConnection;
     private AuctionFactory $auctionFactory;
+    private IdentityLinker $identityLinker;
+    private CustomerRepositoryInterface $customerRepository;
+    private CustomerCreator $customerCreator;
 
     public function __construct(
         BidFactory $bidFactory,
         BidSearchResultsFactory $searchResultsFactory,
         ResourceConnection $resourceConnection,
-        AuctionFactory $auctionFactory
+        AuctionFactory $auctionFactory,
+        IdentityLinker $identityLinker,
+        CustomerRepositoryInterface $customerRepository,
+        CustomerCreator $customerCreator
     ) {
         $this->bidFactory = $bidFactory;
         $this->searchResultsFactory = $searchResultsFactory;
         $this->resourceConnection = $resourceConnection;
         $this->auctionFactory = $auctionFactory;
+        $this->identityLinker = $identityLinker;
+        $this->customerRepository = $customerRepository;
+        $this->customerCreator = $customerCreator;
     }
 
     public function getBidsList(?int $id, ?int $pageSize = 20, ?int $currentPage = 1): BidSearchResultsInterface
@@ -89,8 +101,13 @@ class BidRepository implements BidRepositoryInterface
         return $productId . '|' . $customerId . '|' . $amount;
     }
 
-    public function placeBid(?int $id, string $customerSub, string $customerName, float $amount): BidInterface
-    {
+    public function placeBid(
+        ?int $id,
+        string $customerSub,
+        string $customerName,
+        string $customerEmail,
+        float $amount
+    ): BidInterface {
         $auctionId = (int)$id;
         $connection = $this->resourceConnection->getConnection();
 
@@ -102,17 +119,12 @@ class BidRepository implements BidRepositoryInterface
             throw new LocalizedException(__('Auction "%1" is not active.', $auctionId));
         }
 
-        $identityTable = $connection->getTableName('forbesons_keycloak_identity');
-        $identity = $connection->fetchRow(
-            $connection->select()
-                ->from($identityTable, ['customer_id'])
-                ->where('keycloak_sub = ?', $customerSub)
-                ->limit(1)
-        );
-        if (!$identity) {
-            throw new LocalizedException(__('No Magento customer linked to the given Keycloak identity.'));
+        $identity = $this->identityLinker->findBySub($customerSub);
+        if ($identity) {
+            $customerId = (int)$identity->getCustomerId();
+        } else {
+            $customerId = $this->resolveCustomerId($customerSub, $customerEmail);
         }
-        $customerId = (int)$identity['customer_id'];
 
         $productId = $this->parseProductId($auction->getData(\Forbesons\AuctionApi\Api\Data\AuctionInterface::PRODUCT_ID));
         $productName = (string)$auction->getData(\Forbesons\AuctionApi\Api\Data\AuctionInterface::PRODUCT_NAME);
@@ -182,6 +194,24 @@ class BidRepository implements BidRepositoryInterface
         $bid->setData(\Forbesons\AuctionApi\Api\Data\BidInterface::BID_ID, $bidId);
 
         return $bid;
+    }
+
+    private function resolveCustomerId(string $customerSub, string $customerEmail): int
+    {
+        try {
+            $customer = $this->customerRepository->getByEmail($customerEmail);
+            $customerId = (int)$customer->getId();
+        } catch (NoSuchEntityException $e) {
+            $customer = $this->customerCreator->create([
+                'sub' => $customerSub,
+                'email' => $customerEmail,
+                'given_name' => '',
+                'family_name' => '',
+            ]);
+            $customerId = (int)$customer->getId();
+        }
+        $this->identityLinker->link($customerId, $customerSub);
+        return $customerId;
     }
 
     private function parseProductId($raw): int
