@@ -113,9 +113,9 @@
         <div class="container">
             <?php
             if($footer['footer_logo_src']){
-                $url = $this->getFooterLogoSrc();
-                $isDefaultPortoAsset = stripos($url, 'logo/default/') !== false || stripos($url, '/default/logo') !== false || stripos($url, 'default/logo_') !== false;
-                if (!$isDefaultPortoAsset) {
+                $logoBlock = $this->getLayout()->createBlock(\Magento\Theme\Block\Html\Header\Logo::class);
+                if ($logoBlock && $logoBlock->getLogoSrc()) {
+                    $url = $logoBlock->getLogoSrc();
             ?>
             <?php if ($this->isHomePage()):?>
                 <strong class="logo">
