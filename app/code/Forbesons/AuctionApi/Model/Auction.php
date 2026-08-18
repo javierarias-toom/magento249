@@ -240,6 +240,16 @@ class Auction extends AbstractModel implements AuctionInterface
         return $this->setData('bids_count', $bidsCount);
     }
 
+    public function getImage(): string
+    {
+        return (string)$this->getData(self::IMAGE);
+    }
+
+    public function setImage($image)
+    {
+        return $this->setData(self::IMAGE, $image);
+    }
+
     private function getProduct(): ?\Magento\Catalog\Api\Data\ProductInterface
     {
         $productId = $this->parseProductId($this->getData(self::PRODUCT_ID));

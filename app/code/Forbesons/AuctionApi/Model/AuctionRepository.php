@@ -42,6 +42,11 @@ class AuctionRepository implements AuctionRepositoryInterface
         if (!$auction->getId()) {
             throw new NoSuchEntityException(__('Auction with id "%1" does not exist.', $id));
         }
+        $productId = $this->parseProductId($auction->getData('product_id'));
+        if ($productId > 0) {
+            $images = $this->firstImagesByProductIds([$productId]);
+            $auction->setData('image', $images[$productId] ?? '');
+        }
         return $auction;
     }
 
@@ -76,6 +81,7 @@ class AuctionRepository implements AuctionRepositoryInterface
         }
 
         $this->preloadProducts($items);
+        $this->preloadImages($items);
         $this->preloadBidsCount($items);
 
         $searchResults = $this->searchResultsFactory->create();
@@ -144,6 +150,55 @@ class AuctionRepository implements AuctionRepositoryInterface
         foreach ($items as $auction) {
             $auction->setData('bids_count', (int)($counts[(int)$auction->getId()] ?? 0));
         }
+    }
+
+    /**
+     * @param Auction[] $items
+     */
+    private function preloadImages(array $items): void
+    {
+        $productIds = [];
+        foreach ($items as $auction) {
+            $productId = $this->parseProductId($auction->getData('product_id'));
+            if ($productId > 0) {
+                $productIds[$productId] = $productId;
+            }
+        }
+        if (!$productIds) {
+            return;
+        }
+        $images = $this->firstImagesByProductIds(array_values($productIds));
+        foreach ($items as $auction) {
+            $productId = $this->parseProductId($auction->getData('product_id'));
+            $auction->setData('image', $images[$productId] ?? '');
+        }
+    }
+
+    /**
+     * @param int[] $productIds
+     * @return array<int, string> first enabled gallery image per product id
+     */
+    private function firstImagesByProductIds(array $productIds): array
+    {
+        $connection = $this->resourceConnection->getConnection();
+        $gallery = $this->resourceConnection->getTableName('catalog_product_entity_media_gallery');
+        $toEntity = $this->resourceConnection->getTableName(
+            'catalog_product_entity_media_gallery_value_to_entity'
+        );
+        $select = $connection->select()
+            ->from(['g' => $gallery], ['entity_id' => 'v2e.entity_id', 'value' => 'g.value'])
+            ->join(['v2e' => $toEntity], 'v2e.value_id = g.value_id', [])
+            ->where('v2e.entity_id IN (?)', $productIds)
+            ->where('g.disabled = 0')
+            ->order(['v2e.entity_id', 'g.value_id']);
+        $images = [];
+        foreach ($connection->fetchAll($select) as $row) {
+            $productId = (int)$row['entity_id'];
+            if (!isset($images[$productId])) {
+                $images[$productId] = (string)$row['value'];
+            }
+        }
+        return $images;
     }
 
     private function parseProductId($raw): int

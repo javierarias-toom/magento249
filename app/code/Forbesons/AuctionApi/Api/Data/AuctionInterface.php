@@ -19,6 +19,7 @@ interface AuctionInterface
     public const NEXT_BID_AMT = 'next_bid_amt';
     public const AUCTION_STATUS = 'auction_status';
     public const CREATED_AT = 'created_at';
+    public const IMAGE = 'image';
 
     /**
      * @return int
@@ -166,4 +167,17 @@ interface AuctionInterface
      * @return $this
      */
     public function setBidsCount($bidsCount);
+
+    /**
+     * Product media gallery image path (e.g. "/f/o/forbes-demo-mtb-001_1.jpg").
+     *
+     * @return string
+     */
+    public function getImage();
+
+    /**
+     * @param string $image
+     * @return $this
+     */
+    public function setImage($image);
 }
